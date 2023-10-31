@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Überprüfe die Anmeldeinformationen gegen die Datenbank
-    if ($username === "dein_benutzername" && $password === "dein_passwort") {
+    if ($username === "RG_178" && $password === "U3NbKJTC:X9fDjr") {
         // Anmeldung erfolgreich
         $_SESSION["logged_in"] = true;
         header("Location: /account");
