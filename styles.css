@@ -1,3 +1,10 @@
+
+body {
+    background-color: black;
+    color: white; /* Ändert die Textfarbe auf Weiß für bessere Lesbarkeit */
+}
+
+
 .login_feld {
     position: absolute;
     top: 50%;
