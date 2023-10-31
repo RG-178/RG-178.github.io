@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Passwort Seite</title>
-</head>
 <body>
-    <h1>Bitte geben Sie das Passwort ein:</h1>
-    <input type="password" id="passwordInput" placeholder="Passwort eingeben">
-    <button onclick="checkPassword()">Weiter</button>
+    <label for="usernameInput">USERNAME:</label>
+    <input type="text" id="usernameInput" placeholder="**********"><br>
+    <label for="passwordInput">PASSWORD:</label>
+    <input type="password" id="passwordInput" placeholder="**********"><br>
+    <button onclick="checkCredentials()">LOGIN</button>
 
     <script>
-        function checkPassword() {
-            // Das erwartete Passwort
-            var expectedPassword = "IhrPasswort"; // Ändern Sie "IhrPasswort" in Ihr gewünschtes Passwort
+        function checkCredentials() {
+            // Die erwarteten Benutzername und Passwort
+            var expectedUsername = "RG_178"; // Ändern Sie "IhrBenutzername" in Ihren gewünschten Benutzernamen
+            var expectedPassword = "U3NbKJTC:X9fDjr"; // Ändern Sie "IhrPasswort" in Ihr gewünschtes Passwort
 
-            // Das eingegebene Passwort
+            // Die eingegebenen Benutzername und Passwort
+            var enteredUsername = document.getElementById("usernameInput").value;
             var enteredPassword = document.getElementById("passwordInput").value;
 
-            if (enteredPassword === expectedPassword) {
-                // Weiterleitung zur nächsten Seite, wenn das Passwort korrekt ist
+            if (enteredUsername === expectedUsername && enteredPassword === expectedPassword) {
+                // Weiterleitung zur nächsten Seite, wenn Benutzername und Passwort korrekt sind
                 window.location.href = "nächste_seite.html"; // Ändern Sie "nächste_seite.html" zur gewünschten Zielseite
             } else {
-                alert("Falsches Passwort. Bitte versuchen Sie es erneut.");
+                alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
             }
         }
     </script>
