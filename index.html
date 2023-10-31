@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Passwort Seite</title>
+</head>
 <body>
+    <h1>Bitte geben Sie das Passwort ein:</h1>
+    <input type="password" id="passwordInput" placeholder="Passwort eingeben">
+    <button onclick="checkPassword()">Weiter</button>
 
-<h1>Hi</h1>
-<p>Hello World!</p>
+    <script>
+        function checkPassword() {
+            // Das erwartete Passwort
+            var expectedPassword = "IhrPasswort"; // Ändern Sie "IhrPasswort" in Ihr gewünschtes Passwort
 
+            // Das eingegebene Passwort
+            var enteredPassword = document.getElementById("passwordInput").value;
 
+            if (enteredPassword === expectedPassword) {
+                // Weiterleitung zur nächsten Seite, wenn das Passwort korrekt ist
+                window.location.href = "nächste_seite.html"; // Ändern Sie "nächste_seite.html" zur gewünschten Zielseite
+            } else {
+                alert("Falsches Passwort. Bitte versuchen Sie es erneut.");
+            }
+        }
+    </script>
 </body>
 </html>
