@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-
 <body>
     <div class="login_feld">
-    <label for="usernameInput">USERNAME:</label>
-    <input type="text" id="usernameInput" placeholder="**********"><br>
-    <label for="passwordInput">PASSWORD:</label>
-    <input type="password" id="passwordInput" placeholder="**********"><br>
+    <label for="usernameInput">USERNAME:</label><br>
+    <input type="text" id="usernameInput" placeholder="**********"><br><br>
+    <label for="passwordInput">PASSWORD:</label><br>
+    <input type="password" id="passwordInput" placeholder="**********"><br><br>
     <button onclick="checkCredentials()" style="margin-left:auto; margin-right:auto; text-align: center;">LOGIN</button>
     </div>
 
@@ -29,6 +25,7 @@
                 window.location.href = "/account"; // Ändern Sie "nächste_seite.html" zur gewünschten Zielseite
             } else {
                 alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
+                window.location.href = "/banned";
             }
         }
     </script>
