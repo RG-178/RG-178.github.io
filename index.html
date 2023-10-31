@@ -1,54 +1,34 @@
+<?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // Überprüfe die Anmeldeinformationen gegen die Datenbank
+    if ($username === "dein_benutzername" && $password === "dein_passwort") {
+        // Anmeldung erfolgreich
+        $_SESSION["logged_in"] = true;
+        header("Location: /account");
+        exit;
+    } else {
+        // Anmeldung fehlgeschlagen
+        $error_message = "Ungültige Anmeldeinformationen";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
-
+<head>
+    <title>Anmeldung</title>
+</head>
 <body>
-    <div class="login_feld">
-    <label for="usernameInput">USERNAME:</label><br>
-    <input type="text" id="usernameInput" placeholder="**********"><br><br>
-    <label for="passwordInput">PASSWORD:</label><br>
-    <input type="password" id="passwordInput" placeholder="**********"><br><br>
-    <button onclick="checkCredentials()" style="margin-left:auto; margin-right:auto; text-align: center;">LOGIN</button>
-    </div>
-
-    <script>
-        function checkCredentials() {
-            // Die erwarteten Benutzername und Passwort
-            var expectedUsername = "RG_178"; // Ändern Sie "IhrBenutzername" in Ihren gewünschten Benutzernamen
-            var expectedPassword = "U3NbKJTC:X9fDjr"; // Ändern Sie "IhrPasswort" in Ihr gewünschtes Password
-
-            // Die eingegebenen Benutzername und Passwort
-            var enteredUsername = document.getElementById("usernameInput").value;
-            var enteredPassword = document.getElementById("passwordInput").value;
-
-            if (enteredUsername === expectedUsername && enteredPassword === expectedPassword) {
-                // Weiterleitung zur nächsten Seite, wenn Benutzername und Passwort korrekt sind
-                window.location.href = "/account"; // Ändern Sie "nächste_seite.html" zur gewünschten Zielseite
-            } else {
-                alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
-                window.location.href = "/banned";
-            }
-        }
-    </script>
+    <form method="post" action="login.php">
+        <input type="text" name="username" placeholder="Benutzername" required>
+        <input type="password" name="password" placeholder="Passwort" required>
+        <button type="submit">Anmelden</button>
+    </form>
+    <?php if (isset($error_message)) { echo $error_message; } ?>
 </body>
-
-<style>
-
-body {
-    background-color: black;
-    color: white; /* Ändert die Textfarbe auf Weiß für bessere Lesbarkeit */
-}
-
-
-.login_feld {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid white;
-    border-radius: 10px;
-    padding: 40px;
-  }
-
-</style>
-
 </html>
