@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Anmeldung</title>
-</head>
+
 <body>
-    <form method="post" action="login.php">
-        <input type="text" name="username" placeholder="Benutzername" required>
-        <input type="password" name="password" placeholder="Passwort" required>
-        <button type="submit">Anmelden</button>
-    </form>
+    <div class="login_feld">
+    <label for="usernameInput">USERNAME:</label><br>
+    <input type="text" id="usernameInput" placeholder="**********"><br><br>
+    <label for="passwordInput">PASSWORD:</label><br>
+    <input type="password" id="passwordInput" placeholder="**********"><br><br>
+    <button onclick="checkCredentials()" style="margin-left:auto; margin-right:auto; text-align: center;">LOGIN</button>
+    </div>
+
+    <script>
+        function checkCredentials() {
+            // Die erwarteten Benutzername und Passwort
+            var expectedUsername = "RG_178"; // Ändern Sie "IhrBenutzername" in Ihren gewünschten Benutzernamen
+            var expectedPassword = "U3NbKJTC:X9fDjr"; // Ändern Sie "IhrPasswort" in Ihr gewünschtes Password
+
+            // Die eingegebenen Benutzername und Passwort
+            var enteredUsername = document.getElementById("usernameInput").value;
+            var enteredPassword = document.getElementById("passwordInput").value;
+
+            if (enteredUsername === expectedUsername && enteredPassword === expectedPassword) {
+                // Weiterleitung zur nächsten Seite, wenn Benutzername und Passwort korrekt sind
+                window.location.href = "/account"; // Ändern Sie "nächste_seite.html" zur gewünschten Zielseite
+            } else {
+                alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
+                window.location.href = "/banned";
+            }
+        }
+    </script>
 </body>
 
 <style>
 
 body {
     background-color: black;
-    color: white;
+    color: white; /* Ändert die Textfarbe auf Weiß für bessere Lesbarkeit */
 }
+
+
+.login_feld {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 40px;
+  }
 
 </style>
 
