@@ -21,19 +21,21 @@
                 .then(response => response.json())
                 .then(data => {
                     var users = data.users;
+                    var bannedURL = data.bannedURL;
                     var user = users.find(u => u.username === enteredUsername);
     
                     if (user && user.password === enteredPassword) {
-                        // Weiterleitung zur nächsten Seite, wenn Benutzername und Passwort korrekt sind
-                        window.location.href = "/account3zBw7KpQr2x9s1";
+                        // Weiterleitung zur nächsten Seite, basierend auf der JSON-Datei
+                        window.location.href = user.redirectURL;
                     } else {
                         alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
-                        window.location.href = "/banned";
+                        window.location.href = bannedURL;
                     }
                 })
                 .catch(error => console.error(error));
         }
     </script>
+    
     
 
 </body>

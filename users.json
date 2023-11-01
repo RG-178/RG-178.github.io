@@ -1,8 +1,8 @@
 {
-    "users": [
-      { "username": "RG_178", "password": "U3NbKJTC:X9fDjr" },
-      { "username": "Benutzer2", "password": "Passwort2" },
-      { "username": "Benutzer3", "password": "Passwort3" }
-    ]
-  }
-  
+  "users": [
+    { "username": "RG_178", "password": "U3NbKJTC:X9fDjr", "redirectURL": "/account3zBw7KpQr2x9s1" },
+    { "username": "Benutzer2", "password": "Passwort2", "redirectURL": "/account2" },
+    { "username": "Benutzer3", "password": "Passwort3", "redirectURL": "/account3" }
+  ],
+  "bannedURL": "/banned"
+}
