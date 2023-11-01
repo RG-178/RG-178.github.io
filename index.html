@@ -3,7 +3,7 @@
 
 <body>
     <div class="login_feld">
-    <label for="usernameInput"><div id="title-container">{{ title }}</div></label><br>
+    <label for="usernameInput">USERNAME:</label><br>
     <input type="text" id="usernameInput" placeholder="**********"><br><br>
     <label for="passwordInput">PASSWORD:</label><br>
     <input type="password" id="passwordInput" placeholder="**********"><br><br>
@@ -29,28 +29,6 @@
 
             }
         }
-    </script>
-
-    <script>
-        // Template-Funktion
-        function renderTemplate(templateId, data) {
-            var template = document.getElementById(templateId).innerHTML;
-            var rendered = template.replace(/\{\{\s*([^\}\s]+)\s*\}\}/g, function(match, key) {
-                return data[key] || '';
-            });
-            return rendered;
-        }
-
-        // Daten aus JSON-Datei laden
-        fetch('data.json')
-    .then(response => response.json())
-    .then(jsonData => {
-        // Titel ersetzen
-        document.getElementById('title-container').innerHTML = jsonData.title;
-    })
-    .catch(error => {
-        console.error('Fehler beim Laden der JSON-Daten: ', error);
-    });
     </script>
 
 </body>
