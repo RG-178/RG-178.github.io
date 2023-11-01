@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>JavaScript Templating Engine</title>
-</head>
-<body>
-    <div id="template-container"></div>
 
-    <script type="text/template" id="my-template">
-        <h1>{{ title }}</h1>
-        <ul>
-            {{# items }}
-                <li>{{ name }}</li>
-            {{/ items }}
-        </ul>
+<body>
+    <div class="login_feld">
+    <label for="usernameInput"><div id="title-container">{{ title }}</div></label><br>
+    <input type="text" id="usernameInput" placeholder="**********"><br><br>
+    <label for="passwordInput">PASSWORD:</label><br>
+    <input type="password" id="passwordInput" placeholder="**********"><br><br>
+    <button onclick="checkCredentials()" style="margin-left:auto; margin-right:auto; text-align: center;">LOGIN</button>
+    </div>
+
+    <script>
+        function checkCredentials() {
+            // Die erwarteten Benutzername und Passwort
+            var expectedUsername = "RG_178"; // Ändern Sie "IhrBenutzername" in Ihren gewünschten Benutzernamen
+            var expectedPassword = "U3NbKJTC:X9fDjr"; // Ändern Sie "IhrPasswort" in Ihr gewünschtes Password
+
+            // Die eingegebenen Benutzername und Passwort
+            var enteredUsername = document.getElementById("usernameInput").value;
+            var enteredPassword = document.getElementById("passwordInput").value;
+
+            if (enteredUsername === expectedUsername && enteredPassword === expectedPassword) {
+                // Weiterleitung zur nächsten Seite, wenn Benutzername und Passwort korrekt sind
+                window.location.href = "/account3zBw7KpQr2x9s1"; // Ändern Sie "nächste_seite.html" zur gewünschten Zielseite
+            } else {
+                alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
+                window.location.href = "/banned";
+
+            }
+        }
     </script>
 
     <script>
@@ -27,15 +43,36 @@
 
         // Daten aus JSON-Datei laden
         fetch('data.json')
-            .then(response => response.json())
-            .then(jsonData => {
-                // Daten rendern, nachdem die JSON-Daten geladen wurden
-                var renderedHTML = renderTemplate('my-template', jsonData);
-                document.getElementById('template-container').innerHTML = renderedHTML;
-            })
-            .catch(error => {
-                console.error('Fehler beim Laden der JSON-Daten: ', error);
-            });
+    .then(response => response.json())
+    .then(jsonData => {
+        // Titel ersetzen
+        document.getElementById('title-container').innerHTML = jsonData.title;
+    })
+    .catch(error => {
+        console.error('Fehler beim Laden der JSON-Daten: ', error);
+    });
     </script>
+
 </body>
+
+<style>
+
+body {
+    background-color: black;
+    color: white; /* Ändert die Textfarbe auf Weiß für bessere Lesbarkeit */
+}
+
+
+.login_feld {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 40px;
+  }
+
+</style>
+
 </html>
