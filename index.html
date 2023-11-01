@@ -25,10 +25,7 @@
                 window.location.href = "/account3zBw7KpQr2x9s1"; // Ändern Sie "nächste_seite.html" zur gewünschten Zielseite
             } else {
                 alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
-                window.history.pushState(null, null, '/banned');
-                window.addEventListener('popstate', function () {
-                window.history.pushState(null, null, '/banned');
-                });
+                window.location.href = "/banned";
 
             }
         }
