@@ -17,6 +17,7 @@
     <div class="login_feld">
         <div class="temp">
         <img src="REV.jpg" alt="" width="200" height="200" style="padding-bottom: 25px;">
+        <div class="border-box"></div>
         <div class="temp1" style="padding-bottom: 3px;"><label for="usernameInput">USERNAME</label></div>
         <div class="temp2" style="padding-bottom: 30px;"><input type="text" id="usernameInput" placeholder="" style="text-align: center;"></div>
         <div class="temp3" style="padding-bottom: 3px;"><label for="passwordInput">PASSWORD</label></div>
@@ -24,7 +25,7 @@
     <div class="temp5"><button onclick="checkCredentials()" style="margin-left:auto; margin-right:auto; text-align: center;">LOGIN</button></div>
         </div>
     <div class="sign.up_button" style="padding-top: 10px;">
-        <a href="/signup" target="_blank" title="Create Account" style="text-align: center; text-decoration: underline; font-size: 10px; color: #00fefb;">SIGN UP</a>
+        <a href="/signup" target="_blank" title="Create Account" style="text-align: center; text-decoration: underline; font-size: 10px; color: white;">SIGN UP</a>
     </div>
     </div>
 
@@ -78,6 +79,13 @@ body {
     padding-left: 100px;
     padding-right: 100px;
     text-align: center;
+  }
+
+  .border-box {
+    border-image: linear-gradient(to bottom, #000 2px, transparent 2px) 1;
+    border-image-slice: 1;
+    border-width: 2px solid #00fefb;
+    background-color: transparent;
   }
 
 
