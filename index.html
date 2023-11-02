@@ -1,41 +1,66 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+
+    <link rel="icon" href="REVFAV.png" type="">
+
+    <link rel="apple-touch-icon" href="REVFAV.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login - RevoGenuity</title>
+
+</head>
+
 <body>
     <div class="login_feld">
-    <label for="usernameInput">USERNAME:</label><br>
-    <input type="text" id="usernameInput" placeholder="**********"><br><br>
-    <label for="passwordInput">PASSWORD:</label><br>
-    <input type="password" id="passwordInput" placeholder="**********"><br><br>
+        <img src="REV.jpg" alt="" width="200" height="200"><br><br>
+        <label for="usernameInput">USERNAME</label><br>
+        <input type="text" id="usernameInput" placeholder="" style="text-align: center;"><br><br>
+        <label for="passwordInput">PASSWORD</label><br>
+    <input type="password" id="passwordInput" placeholder="" style="text-align: center;"><br><br>
     <button onclick="checkCredentials()" style="margin-left:auto; margin-right:auto; text-align: center;">LOGIN</button>
+    <div class="sign.up_button">
+        <a href="/signup" target="_blank" title="Create Account">SIGN UP</a>
+    </div>
     </div>
 
     <script>
         function checkCredentials() {
-            // Die erwarteten Benutzername und Passwort
-            var expectedUsername = "RG_178"; // Ändern Sie "IhrBenutzername" in Ihren gewünschten Benutzernamen
-            var expectedPassword = "U3NbKJTC:X9fDjr"; // Ändern Sie "IhrPasswort" in Ihr gewünschtes Password
-
             // Die eingegebenen Benutzername und Passwort
             var enteredUsername = document.getElementById("usernameInput").value;
             var enteredPassword = document.getElementById("passwordInput").value;
-
-            if (enteredUsername === expectedUsername && enteredPassword === expectedPassword) {
-                // Weiterleitung zur nächsten Seite, wenn Benutzername und Passwort korrekt sind
-                window.location.href = "/account3zBw7KpQr2x9s1"; // Ändern Sie "nächste_seite.html" zur gewünschten Zielseite
-            } else {
-                alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
-                window.location.href = "/banned";
-            }
+    
+            // Lade die Benutzerdaten aus der JSON-Datei
+            fetch('users.json')
+                .then(response => response.json())
+                .then(data => {
+                    var users = data.users;
+                    var bannedURL = data.bannedURL;
+                    var user = users.find(u => u.username === enteredUsername);
+    
+                    if (user && user.password === enteredPassword) {
+                        // Weiterleitung zur nächsten Seite, basierend auf der JSON-Datei
+                        window.location.href = user.redirectURL;
+                    } else {
+                        alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
+                        window.location.href = bannedURL;
+                    }
+                })
+                .catch(error => console.error(error));
         }
     </script>
+    
+    
+
 </body>
 
 <style>
 
 body {
     background-color: black;
-    color: white; /* Ändert die Textfarbe auf Weiß für bessere Lesbarkeit */
+    color: white;
 }
 
 
@@ -44,10 +69,27 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid white;
+    border: 2px solid #00fefb;
     border-radius: 10px;
-    padding: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: center;
   }
+
+
+.sign.up_button {
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 10px;
+    font-size: 10px;
+    color: #00fefb;
+}
+
+  @media (max-width: 768px) {
+}
+
 
 </style>
 
