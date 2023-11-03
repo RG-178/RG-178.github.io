@@ -16,3 +16,20 @@ iframe {
 body {
     background: #000000 !important;
 }
+
+.top_sidebar {
+    width: 100%;
+    color: white;
+    opacity: 0.5;
+    margin-top: 0px;
+}
+
+.sidebar_logout {
+    font-size: 15px;
+    padding-left: 1%;
+    color: white;
+}
+
+.sidebar_logout_field {
+    padding-top: 10px;
+}
