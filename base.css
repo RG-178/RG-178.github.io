@@ -45,6 +45,23 @@ body {
     transform: translate(-50%, -50%);
 }
 
+/* Sign Up */
+
+.sign-up_field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0px solid #00fefb;
+    background: rgb(32, 32, 32);
+    border-radius: 10px;
+    padding-top: 60px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+  }
+
 /* Account Settings */
 
 .acc_set_cont_cont {
