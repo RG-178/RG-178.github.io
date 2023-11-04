@@ -19,7 +19,7 @@ function aktualisiereUhrzeitUndDatum() {
     var datumAnzeige = tag + "." + monat + "." + jahr;
     
     // Kombiniere Uhrzeit und Datum mit einem Komma
-    var uhrzeitUndDatum = uhrzeitAnzeige + "  -  " + datumAnzeige;
+    var uhrzeitUndDatum = uhrzeitAnzeige + "  <br>  " + datumAnzeige;
     
     document.getElementById("time").innerHTML = uhrzeitUndDatum;
 }

@@ -18,18 +18,10 @@ body {
 }
 
 .top_sidebar {
-    width: 100%;
     color: white;
     opacity: 0.5;
-    margin-top: 0px;
 }
 
-.sidebar_logout {
-    font-size: 15px;
-    padding-left: 1%;
-    color: white;
-}
-
-.sidebar_logout_field {
-    padding-top: 10px;
+.bottom_sidebar_field {
+    padding-bottom: 4%;
 }
