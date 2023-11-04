@@ -3,6 +3,8 @@
 
 <head>
 
+    <link rel="stylesheet" type="text/css" href="base.css">
+
     <link rel="icon" href="REVFAV.png" type="">
 
     <link rel="apple-touch-icon" href="REVFAV.png">
@@ -19,9 +21,9 @@
         <img src="REV.png" alt="" width="200" height="200" style="padding-bottom: 10px;">
         <div class="border-box" style="padding-bottom: 0px;"></div>
         <div class="temp1" style="padding-bottom: 3px; display: none;"><label for="usernameInput">USERNAME</label></div>
-        <div class="temp2" style="padding-bottom: 30px;"><input type="text" id="usernameInput" placeholder="Username" style="height: 40px; width: 300px; background: rgb(30, 30, 30);"></div>
+        <div class="temp2" style="padding-bottom: 30px;"><input type="text" id="usernameInput" placeholder="Username" style="color: white; height: 40px; width: 300px; background: rgb(30, 30, 30);"></div>
         <div class="temp3" style="padding-bottom: 3px; display: none;"><label for="passwordInput">PASSWORD</label></div>
-    <div class="temp4" style="padding-bottom: 30px;"><input type="password" id="passwordInput" placeholder="Password" style="height: 40px; width: 300px; background: rgb(30, 30, 30);"></div>
+    <div class="temp4" style="padding-bottom: 30px;"><input type="password" id="passwordInput" placeholder="Password" style="color: white; height: 40px; width: 300px; background: rgb(30, 30, 30);"></div>
     <div class="temp5">
 
         <button onclick="checkCredentials()" style="height: 40px; width: 300px; background: #00fefb; margin-left:auto; margin-right:auto; text-align: center;">LOGIN</button>
@@ -51,7 +53,7 @@
                         // Weiterleitung zur nächsten Seite, basierend auf der JSON-Datei
                         window.location.href = user.redirectURL;
                     } else {
-                        alert("WRONG, YOU HAVE BEEN BANNED FROM THIS WEBSITE!");
+                        alert("WRONG PASSWORD OR LOGIN!");
                         window.location.href = bannedURL;
                     }
                 })
@@ -65,44 +67,8 @@
 <style>
 
 body {
-    background-color: rgb(20, 20, 20);
-    color: white;
+    color: white !important;
 }
-
-
-.login_feld {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 0px solid #00fefb;
-    background: rgb(32, 32, 32);
-    border-radius: 10px;
-    padding-top: 60px;
-    padding-bottom: 100px;
-    padding-left: 100px;
-    padding-right: 100px;
-    text-align: center;
-  }
-
-  .border-box {
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    border: 1px solid #00fefb;
-    background-color: transparent;
-    height: 0px;
-    width: 400px;
-    position: absolute;
-    left: 0%;
-    top: 40%;
-    display: none;
-  }
-
-
-@media (max-width: 768px) {
-}
-
 
 </style>
 
