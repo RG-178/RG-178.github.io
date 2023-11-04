@@ -25,15 +25,3 @@ body {
 .bottom_sidebar_field {
     padding-bottom: 4%;
 }
-
-@media (min-width: 750px){
-    .mobile_sidebar {
-      display: none;
-    }
-}
-
-@media (max-width: 749px){
-    .desktop_sidebar {
-      display: none;
-    }
-}
