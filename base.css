@@ -130,3 +130,258 @@ iframe {
 .bottom_sidebar_field {
     padding-bottom: 4%;
 }
+
+.dropdown-menu-dark {
+    --bs-dropdown-link-active-bg: #222529 !important;
+}
+
+/* Fast Qty Allgemein */
+
+.ein-aus_fast-qty {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 60%;
+}
+
+/* Fast Qty Eingabe */
+
+.ein_fast-qty {
+    display: flex;
+    flex-direction: column;
+}
+
+.leverage_cont {
+    height: 72.67px;
+    width: 108px;
+    background: #363A40;
+    border-radius: 8px;
+    margin-top: 40%;
+    position: relative;
+
+  }
+
+  .leverage_cont_line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .leverage_cont_tit {
+    text-align: center;
+    margin: 0px !important;
+    position: absolute;
+    top: 10%;
+    transform: translateY(-10%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .leverage_cont_input {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-60%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #leverage-fast-qty {
+    max-width: 90px;
+    background: transparent;
+    max-height: 25px;
+    border: solid transparent;
+    border-bottom: 1px dashed white !important;
+    color: white;
+    text-align: center;
+    outline: 0px !important;
+  }
+
+  .entry_cont {
+    height: 72.67px;
+    width: 108px;
+    background: #363A40;
+    border-radius: 8px;
+    margin-top: 20%;
+    position: relative;
+
+  }
+
+  .entry_cont_line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .entry_cont_tit {
+    text-align: center;
+    margin: 0px !important;
+    position: absolute;
+    top: 10%;
+    transform: translateY(-10%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .entry_cont_input {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-60%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #entry-fast-qty {
+    max-width: 90px;
+    background: transparent;
+    max-height: 25px;
+    border: solid transparent;
+    border-bottom: 1px dashed white !important;
+    color: white;
+    text-align: center;
+    outline: 0px !important;
+  }
+
+  .cost_cont {
+    height: 72.67px;
+    width: 108px;
+    background: #363A40;
+    border-radius: 8px;
+    margin-top: 20%;
+    position: relative;
+
+  }
+
+  .cost_cont_line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .cost_cont_tit {
+    text-align: center;
+    margin: 0px !important;
+    position: absolute;
+    top: 10%;
+    transform: translateY(-10%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cost_cont_input {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-60%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #cost-fast-qty {
+    max-width: 90px;
+    background: transparent;
+    max-height: 25px;
+    border: solid transparent;
+    border-bottom: 1px dashed white !important;
+    color: white;
+    text-align: center;
+    outline: 0px !important;
+  }
+
+  /* Fast Qty Ausgabe */
+
+  .aus_fast-qty {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aus-qty_cont {
+    height: 72.67px;
+    width: 108px;
+    background: #363A40;
+    border-radius: 8px;
+    margin-top: 0%;
+    position: relative;
+
+  }
+
+  .aus-qty_cont_line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .aus-qty_cont_tit {
+    text-align: center;
+    margin: 0px !important;
+    position: absolute;
+    top: 10%;
+    transform: translateY(-10%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .aus-qty_cont_result {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-60%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #aus-qty_result {
+  }
+
+  .aus-value_cont {
+    height: 72.67px;
+    width: 108px;
+    background: #363A40;
+    border-radius: 8px;
+    margin-top: 40%;
+    position: relative;
+
+  }
+
+  .aus-value_cont_line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .aus-value_cont_tit {
+    text-align: center;
+    margin: 0px !important;
+    position: absolute;
+    top: 10%;
+    transform: translateY(-10%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .aus-value_cont_result {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-60%);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #aus-value_result {
+  }
