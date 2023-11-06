@@ -5,6 +5,8 @@
         <link rel="stylesheet" type="text/css" href="base.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
         
         <link rel="icon" href="REVFAV.png" type="">    
         <link rel="apple-touch-icon" href="REVFAV.png">
@@ -56,7 +58,14 @@
     <div class="leverage_cont">
       <div class="leverage_cont_tit">Leverage</div>
       <div class="leverage_cont_line"></div>
-      <div class="leverage_cont_input"><input type="text" id="leverage-fast-qty" name="leverage-fast-qty"></div>
+      <div class="leverage_cont_input">
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="levreage-fast-qty" name="leverage-fast-qty">
+          <label class="mdl-textfield__label" for="sample2" style="color: white;">Number...</label>
+          <span class="mdl-textfield__error" style="color: white;">Input is not a number!</span>
+      </form></div>
+      </div>
     </div>
 
     <div class="entry_cont">
@@ -109,6 +118,7 @@
       <script src="sidebar.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
       <script src="main.js"></script>
+      <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   
     </body>
   
