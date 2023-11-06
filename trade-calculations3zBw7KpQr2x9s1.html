@@ -43,11 +43,26 @@
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
   
   
-  
-            <div class="ein-aus_fast-qty">
+            <div class="calc_field">
+            
 
+              <div class="shortlong_but" style="display: flex; justify-content: center; align-items: center;">
+                <div class="long_but" style="background: #20B26C; min-width: 150px; max-height: 24px; border-radius: 5px;">
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                <span class="mdl-radio__label" style="font-size: 12px;">Long</span>
+              </label>
+              </div>
+              <div class="short_but" style="background: #EF454A; min-width: 150px; max-height: 24px; border-radius: 5px;">
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label" style="font-size: 12px; padding-right: auto; padding-bottom: auto;">Short</span>
+              </label>
+              </div>
+              </div>
+            </div>
 
-
+  <div class="ein-aus_fast-qty" style="display: none;">
     <div class="ein_fast-qty">
 
     <select id="long-short_drop">
@@ -172,6 +187,18 @@
     background: #767676;
     color: white;
     padding: 50px;
+  }
+
+  .mdl-radio__inner-circle {
+    display: none;
+  }
+
+  .mdl-radio__outer-circle {
+    display: none;
+  }
+
+  .mdl-ripple.is-visible {
+    display: none;
   }
   
   </style>
