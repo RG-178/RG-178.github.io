@@ -18,6 +18,7 @@
         
       </head>
 
+      
     <body>
 
         <!-- Hier die Sidebar einbinden -->
@@ -27,106 +28,292 @@
 
         <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding: 2%; padding-bottom: 0px !important; padding-right: 0px !important;">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Fast Qty</button>
+            <button class="nav-link active" id="tab_qty" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Fast Qty</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Fast Leverage</button>
+            <button class="nav-link" id="tab_lev" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Fast Lev</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">hallo</button>
+            <button class="nav-link" id="tab_liq" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Fast Liq</button>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent" style="padding-top: 3%; padding-left: 2%; color: white;">
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-  
-  
-            <div class="calc_field">
-            
+       <!-- 1. Feld Fast Qty Calculation --> 
+       <div class="body_fast-qty">   
+    <div class="calc_field_fast-qty">
+      <div class="fast-qty_head">
+        <div class="fast-qty_head_tit"><b>Fast Quantity Calculation</b></div>
+        <div class="fast-qty_head_text">The Fast Quantity Calculation is very helpful when having to take a Trade spontaneously. You type in your Cost, Leverage and Entry and get the perfect <b>Quantity / Order Value</b> for that Trade, <b>respecting the Bybit Fees.</b></div>
+      </div>
 
-              <div class="shortlong_but" style="display: flex; justify-content: center; align-items: center;">
-                <div class="long_but" style="background: #20B26C; min-width: 150px; max-height: 24px; border-radius: 5px;">
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
-                <span class="mdl-radio__label" style="font-size: 12px;">Long</span>
-              </label>
+      <div class="my-divider"></div>
+
+      <div class="both_fast-qty">
+        <div class="left_fast-qty">
+      
+          <div class="switch-container-cont">
+            <div class="switch-container">
+              <div id="long" class="switch-option active" onclick="toggleOption('long')"><div class="longoption_text" style="transform: translateY(-33%); color: rgb(255 255 255 / 75%)">Long</div></div>
+                <div id="short" class="switch-option" onclick="toggleOption('short')"><div class="shortoption_text" style="transform: translateY(-33%); color: rgb(255 255 255 / 75%)">Short</div></div>
+            </div>
+          </div>
+
+            <div id="inputs_fast-qty_long">
+            <div class="input-container">
+              <label for="leverage-fast-qty-long">Leverage</label>
+              <div class="currency" data-currency="X">
+                  <input type="number" id="leverage-fast-qty-long" placeholder="1x-100x" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_long()">
               </div>
-              <div class="short_but" style="background: #EF454A; min-width: 150px; max-height: 24px; border-radius: 5px;">
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
-                <span class="mdl-radio__label" style="font-size: 12px; padding-right: auto; padding-bottom: auto;">Short</span>
-              </label>
+          </div>
+      
+          <div class="input-container">
+              <label for="entry-fast-qty-long">Entry</label>
+              <div class="currency" data-currency="USDT">
+                  <input type="number" id="entry-fast-qty-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_long()">
               </div>
+          </div>
+      
+          <div class="input-container">
+              <label for="cost-fast-qty-long">Cost</label>
+              <div class="currency" data-currency="USDT">
+                  <input type="number" id="cost-fast-qty-long" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_long()">
               </div>
             </div>
 
-  <div class="ein-aus_fast-qty" style="display: none;">
-    <div class="ein_fast-qty">
-
-    <select id="long-short_drop">
-        <option id="longoption" value="long">Long</option>
-        <option id="shortoption" value="short">Short</option>
-    </select>
-
-    <div class="leverage_cont">
-      <div class="leverage_cont_tit">Leverage</div>
-      <div class="leverage_cont_line"></div>
-      <div class="leverage_cont_input">
-      <form action="#">
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="levreage-fast-qty" name="leverage-fast-qty">
-          <label class="mdl-textfield__label" for="sample2" style="color: white;">Number...</label>
-          <span class="mdl-textfield__error" style="color: white;">Input is not a number!</span>
-      </form></div>
-      </div>
-    </div>
-
-    <div class="entry_cont">
-      <div class="entry_cont_tit">Entry</div>
-      <div class="entry_cont_line"></div>
-      <div class="entry_cont_input"><input type="text" id="entry-fast-qty" name="entry-fast-qty"></div>
-    </div>
-
-    <div class="cost_cont">
-      <div class="cost_cont_tit">Cost</div>
-      <div class="cost_cont_line"></div>
-      <div class="cost_cont_input"><input type="text" id="cost-fast-qty" name="cost-fast-qty"></div>
-    </div>
-    </div>
+          </div>
 
 
 
-    <div class="aus_fast-qty">
-
-      <div class="aus-qty_cont">
-        <div class="aus-qty_cont_tit">Qty</div>
-        <div class="aus-qty_cont_line"></div>
-        <div class="aus-qty_cont_result"><p id="aus-qty_result"></p></div>
-      </div>
-
-      <div class="aus-value_cont">
-        <div class="aus-value_cont_tit">Value</div>
-        <div class="aus-value_cont_line"></div>
-        <div class="aus-value_cont_result"><p id="aus-value_result"></p></div>
-      </div>
-      </div>
 
 
 
-    </div>
+          <div id="inputs_fast-qty_short" style="display: none;">
+            <div class="input-container">
+              <label for="leverage-fast-qty-short">Leverage</label>
+              <div class="currency" data-currency="X">
+                  <input type="number" id="leverage-fast-qty-short" placeholder="1x-100x" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_short()">
+              </div>
+          </div>
+      
+          <div class="input-container">
+              <label for="entry-fast-qty-short">Entry</label>
+              <div class="currency" data-currency="USDT">
+                  <input type="number" id="entry-fast-qty-short" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_short()">
+              </div>
+          </div>
+      
+          <div class="input-container">
+              <label for="cost-fast-qty-short">Cost</label>
+              <div class="currency" data-currency="USDT">
+                  <input type="number" id="cost-fast-qty-short" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_short()">
+              </div>
+            </div>
 
           </div>
 
-          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+
+
+        </div>
+
+        <!-- wurde entfernt: <hr class="divider_in-ou-put" style="display: none; background: rgb(255 255 255 / 20%); width: 90%; margin-left: 6%; margin-right: 4%; margin-bottom: 5%;"> -->
+
+        <div class="right_fast-qty">
+          <div class="result_fast-qty_cont">
+            <div class="result_fast-qty_tit">Results</div>
+              <div class="result_fast-qty_results">
+
+
+                <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                  <div class="im-text_left">Initial Margin</div>
+                  <div id="im_fast-qty">0.0000 USDT</div>
+                </div>
+
+                <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                  <div class="im-text_left">Quantity</div>
+                  <div id="qty_fast-qty">0.000 Coins</div>
+                </div>
+
+                <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                  <div class="im-text_left">Order Value</div>
+                  <div id="ov_fast-qty">0.0000 USDT</div>
+                </div>
+
+
+              </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    </div>
+
+  </div>
+
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+<!-- 2. Feld Fast Leverage Calculation -->
+            <div class="calc_field_fast-lev">
+              <div class="fast-qty_head">
+                <div class="fast-qty_head_tit"><b>Fast Leverage Calculation</b></div>
+                <div class="fast-qty_head_text">The Fast Leverage Calculation is very helpful for a <b>precise Leverage Calculation</b> for a <b>planned or spontaneous Trade</b> and you can <b>adjust the amount of potential Risk</b> you want to put in, <b>respecting the Bybit Fees.</b></div>
+              </div>
+        
+              <div class="my-divider"></div>
+        
+              <div class="both_fast-qty">
+                <div class="left_fast-qty">
+              
+                  <div class="switch-container-cont">
+                    <div class="switch-container">
+                      <div id="long_b" class="switch-option active" onclick="toggleOption_b('long')"><div class="longoption_text" style="transform: translateY(-33%); color: rgb(255 255 255 / 75%)">Long</div></div>
+                        <div id="short_b" class="switch-option" onclick="toggleOption_b('short')"><div class="shortoption_text" style="transform: translateY(-33%); color: rgb(255 255 255 / 75%)">Short</div></div>
+                    </div>
+                  </div>
+        
+                    <div id="inputs_fast-lev_long">
+                    <div class="input-container">
+                      <label for="leverage-fast-qty-long">Stop Loss</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="leverage-fast-qty-long" placeholder="Enter SL" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                      </div>
+                  </div>
+              
+                  <div class="input-container">
+                      <label for="entry-fast-qty-long">Entry</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="entry-fast-qty-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                      </div>
+                  </div>
+              
+                  <div class="input-container">
+                      <label for="cost-fast-qty-long">Take Profit</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="cost-fast-qty-long" placeholder="Enter TP" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                      </div>
+                    </div>
+
+                    <div class="input-container">
+                      <label for="risk-fast-lev-long">Risk</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="risk-fast-lev-long" placeholder="Enter Risk" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                      </div>
+                    </div>
+
+                    <div class="input-container">
+                      <label for="cost-fast-lev-long">Cost</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="cost-fast-lev-long" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                      </div>
+                    </div>
+
+                    <div class="input-container">
+                      <label for="mmr-fast-lev-long">Maintenance Margin</label>
+                      <div class="currency" data-currency="%">
+                          <input type="number" id="mmr-fast-lev-long" placeholder="Enter MMR" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                      </div>
+                    </div>
+        
+                  </div>
+        
+        
+        
+        
+        
+        
+                  <div id="inputs_fast-lev_short" style="display: none;">
+                    <div class="input-container">
+                      <label for="sl-fast-lev-short">Stop Loss</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="sl-fast-lev-short" placeholder="Enter SL" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
+                      </div>
+                  </div>
+              
+                  <div class="input-container">
+                      <label for="entry-fast-lev-short">Entry</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="entry-fast-lev-short" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
+                      </div>
+                  </div>
+              
+                  <div class="input-container">
+                      <label for="tp-fast-lev-short">Take Profit</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="tp-fast-lev-short" placeholder="Enter TP" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
+                      </div>
+                    </div>
+
+                    <div class="input-container">
+                      <label for="risk-fast-lev-short">Risk</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="risk-fast-lev-short" placeholder="Enter Risk" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
+                      </div>
+                    </div>
+
+                    <div class="input-container">
+                      <label for="cost-fast-lev-short">Cost</label>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="cost-fast-lev-short" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
+                      </div>
+                    </div>
+
+                    <div class="input-container">
+                      <label for="mmr-fast-lev-short">Maintenance Margin</label>
+                      <div class="currency" data-currency="%">
+                          <input type="number" id="mmr-fast-lev-short" placeholder="Enter MMR" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
+                      </div>
+                    </div>
+        
+                  </div>
+        
+        
+        
+                </div>
+        
+                <!-- wurde entfernt: <hr class="divider_in-ou-put" style="display: none; background: rgb(255 255 255 / 20%); width: 90%; margin-left: 6%; margin-right: 4%; margin-bottom: 5%;"> -->
+        
+                <div class="right_fast-qty">
+                  <div class="result_fast-qty_cont">
+                    <div class="result_fast-qty_tit">Results</div>
+                      <div class="result_fast-qty_results">
+        
+        
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Initial Margin</div>
+                          <div id="im_fast-qty"></div>
+                        </div>
+        
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Quantity</div>
+                          <div id="qty_fast-qty"></div>
+                        </div>
+        
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Order Value</div>
+                          <div id="ov_fast-qty"></div>
+                        </div>
+        
+        
+                      </div>
+                  </div>
+                </div>
+        
+              </div>
+        
+        
+            </div>
+
+  </div>
+          
+  
           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
-          <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
         </div>
 
 
 
-
+      <script src="functions.js"></script>
       <script src="long-short.js"></script>
       <script src="tabs.js"></script>
       <script src="time.js"></script>
@@ -138,10 +325,14 @@
     </body>
   
   <style>
-  
-  body {
-    margin: 0px;
-    padding: 0px;
+
+  @media (max-width: 720px) {
+    /*body {
+      padding-bottom: 800px !important;
+    }*/
+    .divider_in-ou-put {
+      display: block !important;
+    }
   }
 
   .nav-tabs .nav-link.active {
@@ -162,7 +353,7 @@
     background: rgb(33, 37, 41);
   }
 
-  button#tab.nav-link {
+  button#tab_qty.nav-link, button#tab_lev.nav-link, button#tab_liq.nav-link {
     color: white;
     border: black;
   }
@@ -199,6 +390,20 @@
 
   .mdl-ripple.is-visible {
     display: none;
+  }
+
+  .mdl-switch__thumb {
+    background: rgb(0 254 251 / 40%);
+  }
+
+  .mdl-switch__track {
+    background: rgb(0 254 251 / 10%);
+  }
+  
+  html {
+    /*height: 110%;*/
+    overflow: auto;
+    margin-bottom: 5%;
   }
   
   </style>

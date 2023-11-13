@@ -137,264 +137,14 @@ iframe {
 
 /* Fast Qty Allgemein */
 
-.ein-aus_fast-qty {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 60%;
-}
 
-/* Fast Qty Eingabe */
-
-.ein_fast-qty {
-    display: flex;
-    flex-direction: column;
-}
-
-.leverage_cont {
-    height: 72.67px;
-    width: 108px;
-    background: #363A40;
-    border-radius: 8px;
-    margin-top: 40%;
-    position: relative;
-
-  }
-
-  .leverage_cont_line {
+  .calc_field_fast-qty {
     position: absolute;
-    width: 100%;
-    height: 1px;
-    background-color: white;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-
-  .leverage_cont_tit {
-    text-align: center;
-    margin: 0px !important;
-    position: absolute;
-    top: 10%;
-    transform: translateY(-10%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .leverage_cont_input {
-    position: absolute;
-    top: 20%;
-    transform: translateY(-40%);
-    left: 0%;
-    transform: translateX(5%);
-  }
-
-  #leverage-fast-qty {
-    max-width: 90px;
-    background: transparent;
-    max-height: 25px;
-    border: solid transparent;
-    border-bottom: 1px dashed white !important;
-    color: white;
-    text-align: center;
-    outline: 0px !important;
-  }
-
-  .entry_cont {
-    height: 72.67px;
-    width: 108px;
-    background: #363A40;
-    border-radius: 8px;
-    margin-top: 20%;
-    position: relative;
-
-  }
-
-  .entry_cont_line {
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background-color: white;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-
-  .entry_cont_tit {
-    text-align: center;
-    margin: 0px !important;
-    position: absolute;
-    top: 10%;
-    transform: translateY(-10%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .entry_cont_input {
-    position: absolute;
-    top: 60%;
-    transform: translateY(-60%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  #entry-fast-qty {
-    max-width: 90px;
-    background: transparent;
-    max-height: 25px;
-    border: solid transparent;
-    border-bottom: 1px dashed white !important;
-    color: white;
-    text-align: center;
-    outline: 0px !important;
-  }
-
-  .cost_cont {
-    height: 72.67px;
-    width: 108px;
-    background: #363A40;
-    border-radius: 8px;
-    margin-top: 20%;
-    position: relative;
-
-  }
-
-  .cost_cont_line {
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background-color: white;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-
-  .cost_cont_tit {
-    text-align: center;
-    margin: 0px !important;
-    position: absolute;
-    top: 10%;
-    transform: translateY(-10%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .cost_cont_input {
-    position: absolute;
-    top: 60%;
-    transform: translateY(-60%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  #cost-fast-qty {
-    max-width: 90px;
-    background: transparent;
-    max-height: 25px;
-    border: solid transparent;
-    border-bottom: 1px dashed white !important;
-    color: white;
-    text-align: center;
-    outline: 0px !important;
-  }
-
-  /* Fast Qty Ausgabe */
-
-  .aus_fast-qty {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .aus-qty_cont {
-    height: 72.67px;
-    width: 108px;
-    background: #363A40;
-    border-radius: 8px;
-    margin-top: 0%;
-    position: relative;
-
-  }
-
-  .aus-qty_cont_line {
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background-color: white;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-
-  .aus-qty_cont_tit {
-    text-align: center;
-    margin: 0px !important;
-    position: absolute;
-    top: 10%;
-    transform: translateY(-10%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .aus-qty_cont_result {
-    position: absolute;
-    top: 60%;
-    transform: translateY(-60%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  #aus-qty_result {
-  }
-
-  .aus-value_cont {
-    height: 72.67px;
-    width: 108px;
-    background: #363A40;
-    border-radius: 8px;
-    margin-top: 40%;
-    position: relative;
-
-  }
-
-  .aus-value_cont_line {
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background-color: white;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-
-  .aus-value_cont_tit {
-    text-align: center;
-    margin: 0px !important;
-    position: absolute;
-    top: 10%;
-    transform: translateY(-10%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .aus-value_cont_result {
-    position: absolute;
-    top: 60%;
-    transform: translateY(-60%);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  #aus-value_result {
-  }
-
-
-  .calc_field {
-    height: 70%;
-    width: 60%;
+    padding-left: auto;
+    padding-right: auto;
+    height: 80%;
+    width: 65%;
     border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border: 0px solid;
     background: rgb(24, 24, 24);
     border-radius: 20px;
@@ -402,6 +152,268 @@ iframe {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
-  .shortlong_but {
-    padding-top: 2%;
+  @media (max-width: 720px) {
+    .both_fast-qty {
+      display: block !important;
+    }
+    .calc_field_fast-qty {
+      min-height: 120% !important;
+      margin-top: 135px !important;
+    }
+    .right_fast-qty {
+      margin-right: 4% !important;
+      margin-left: 6% !important;
+      margin-top: 5% !important;
+    }
+    .result_fast-qty_cont {
+      padding: 5% 7%;
+    }
+    .my-divider {
+      display: none;
+    }
+    .fast-qty_head_tit, .fast-qty_head_text {
+      text-align: center !important;
+    }
+    .fast-qty_head {
+      padding-top: 2.5% !important;
+      padding-bottom: 2.5% !important;
+    }
+    /*body {
+      height: 143%;
+    }*/
+    
   }
+
+  @media (max-width: 800px) {
+    .calc_field_fast-qty {
+      min-width: 97% !important;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .calc_field_fast-qty {
+      min-width: 87%;
+    }
+  }
+
+
+
+  .switch-container-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+    min-width: 60% !important;
+    padding: 0 10px;
+  }
+
+  .switch-container {
+    display: flex;
+    background-color: #25282C; /* Dunkelgrauer Hintergrund für den Container */
+    min-width: 100% !important;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch-option {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(255 255 255 / 75%); /* Textfarbe für Optionen */
+    min-width: 50% !important;
+    max-height: 28px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+#long.active, #long_b.active {
+  background-color: #20B26C; /* Hintergrundfarbe für "Long", wenn aktiv */
+}
+
+#short.active, #short_b.active {
+    background-color: #EF454A; /* Hintergrundfarbe für "Short", wenn aktiv */
+}
+
+
+
+.input-container {
+  width: 100%;
+  background: transparent;
+  padding: 10px;
+  margin: 10px 0;
+  color: rgb(255 255 255 / 75%);
+}
+
+.input-container label {
+  display: block;
+  text-align: left;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid transparent;
+  background: #25282C;
+  color: white;
+  border-radius: 4px;
+}
+
+.input-container input::placeholder {
+  color: white;
+}
+
+.currency {
+  position: relative;
+}
+
+.currency::before {
+  content: attr(data-currency);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input-container input[type="number"] {
+  appearance: textfield;
+}
+
+.input-container input[type="number"]::-webkit-inner-spin-button, 
+.input-container input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-container input[type="number"]::-webkit-outer-spin-button,
+.input-container input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.input-container input:focus {
+  outline: 1px solid #fff;
+}
+
+
+/* Fast Qty */
+#entry-fast-qty-long, #cost-fast-qty-long, #leverage-fast-qty-long {
+  color: rgb(255 255 255 / 100%) !important;
+}
+
+#entry-fast-qty-long::placeholder, #cost-fast-qty-long::placeholder, #leverage-fast-qty-long::placeholder {
+  color: rgb(255 255 255 / 20%) !important;
+}
+
+#entry-fast-qty-short, #cost-fast-qty-short, #leverage-fast-qty-short {
+  color: rgb(255 255 255 / 100%) !important;
+}
+
+#entry-fast-qty-short::placeholder, #cost-fast-qty-short::placeholder, #leverage-fast-qty-short::placeholder {
+  color: rgb(255 255 255 / 20%) !important;
+}
+/**/
+/* Fast Leverage */
+#entry-fast-lev-long, #sl-fast-lev-long, #tp-fast-lev-long, #risk-fast-lev-long, #cost-fast-lev-long, #mmr-fast-lev-long {
+  color: rgb(255 255 255 / 100%) !important;
+}
+
+#entry-fast-lev-long::placeholder, #sl-fast-lev-long::placeholder, #tp-fast-lev-long::placeholder, #risk-fast-lev-long::placeholder, #cost-fast-lev-long::placeholder, #mmr-fast-lev-long::placeholder {
+  color: rgb(255 255 255 / 20%) !important;
+}
+
+#entry-fast-lev-short, #sl-fast-lev-short, #tp-fast-lev-short, #risk-fast-lev-short, #cost-fast-lev-short, #mmr-fast-lev-short {
+  color: rgb(255 255 255 / 100%) !important;
+}
+
+#entry-fast-lev-short::placeholder, #sl-fast-lev-short::placeholder, #tp-fast-lev-short::placeholder, #risk-fast-lev-short::placeholder, #cost-fast-lev-short::placeholder, #mmr-fast-lev-short::placeholder {
+  color: rgb(255 255 255 / 20%) !important;
+}
+/**/
+
+.right_fast-qty {
+  background: #25282C;
+  min-height: 300px;
+  min-width: 42% !important;
+  margin-right: 4%;
+  margin-left: 1%;
+  margin-top: 1.5%;
+}
+
+.result_fast-qty_tit {
+  font-size: 16px;
+  text-align: left !important;
+  color: rgb(255 255 255 / 100%);
+}
+
+.both_fast-qty {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.left_fast-qty {
+  margin-left: 4% !important;
+  margin-right: 1% !important;
+  min-width: 48% !important;
+}
+
+.result_fast-qty_cont {
+  padding: 3% 5%;
+}
+
+.result_fast-qty_results {
+  margin-top: 20px;
+}
+
+.im-text_left {
+  color: rgb(255 255 255 / 75%);
+  font-size: 14px;
+}
+
+.fast-qty_head_tit, .fast-qty_head_text {
+  text-align: left;
+}
+
+.fast-qty_head {
+  padding-top: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 1%;
+}
+
+.fast-qty_head_tit {
+  font-size: 15px;
+  margin: 10px;
+}
+
+.fast-qty_head_text {
+  font-size: 12px;
+  margin: 10px;
+}
+
+.my-divider {
+  width: 91%; /* Ändere die Breite nach Bedarf */
+  margin: 5px 4% 15px 5%; /* Ändere den Abstand oben und unten nach Bedarf */
+  height: 1px; /* Ändere die Dicke nach Bedarf */
+  background-color: rgb(255 255 255 / 20%); /* Ändere die Hintergrundfarbe nach Bedarf */
+}
+
+#im_fast-qty {
+  color: #F7A600;
+}
+
+.calc_field_fast-lev {
+  height: 110%;
+  width: 65%;
+  border-radius: 10px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-70%, -50%);
+  border: 0px solid;
+  background: rgb(24, 24, 24);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}

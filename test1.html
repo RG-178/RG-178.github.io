@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <style>
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .block1, .block2 {
-            width: 100px;
-            height: 100px;
-            background-color: #f0f0f0;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatische Summe von Input-Werten</title>
 </head>
 <body>
-    <div class="container">
-        <div class="block1">Block 1</div>
-        <div class="block2">Block 2</div>
-    </div>
+
+    <label for="input1">Eingabe 1:</label>
+    <input type="number" id="input1" placeholder="Geben Sie den ersten Wert ein" oninput="summiere()">
+
+    <label for="input2">Eingabe 2:</label>
+    <input type="number" id="input2" placeholder="Geben Sie den zweiten Wert ein" oninput="summiere()">
+
+    <p>Ergebnis: <span id="ergebnis">0</span></p>
+
+    
+
+    <script>
+        function summiere() {
+            // Werte aus den Eingabefeldern abrufen
+            var wert1 = parseFloat(document.getElementById('input1').value);
+            var wert2 = parseFloat(document.getElementById('input2').value);
+
+            // Überprüfen, ob beide Eingabefelder ausgefüllt sind
+            if (!isNaN(wert1) && !isNaN(wert2)) {
+                // Summe berechnen und in das Ausgabefeld einfügen
+                var summe = wert1 + wert2;
+                document.getElementById('ergebnis').innerText = summe;
+            } else {
+                // Wenn nicht beide Eingabefelder ausgefüllt sind, zeige eine Fehlermeldung oder setze das Ergebnis auf 0
+                document.getElementById('ergebnis').innerText = "Bitte füllen Sie beide Eingabefelder aus";
+            }
+        }
+    </script>
+
 </body>
 </html>
-
