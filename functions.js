@@ -88,26 +88,3 @@ function toggleOption_b(option) {
 
     }
 }
-
-function toggle_calcs(option) {
-    if (option === 'qty') {
-        if (window.matchMedia("(max-width: 800px)").matches) {
-            // Code, der ausgeführt wird, wenn die Bildschirmbreite 800px oder weniger beträgt
-            document.body.style.height = '143%'; // Beispiel: Ändere die Hintergrundfarbe des Body-Elements
-        } else {
-            // Code, der ausgeführt wird, wenn die Bildschirmbreite größer als 800px ist
-            document.body.style.backgroundColor = 'blue'; // Beispiel: Ändere die Hintergrundfarbe des Body-Elements
-        }        
-
-
-    } else if (option === 'lev') {
-        document.getElementById('short_b').classList.add('active');
-        document.getElementById('long_b').classList.remove('active');
-        document.getElementById('inputs_fast-lev_short').style.setProperty('display', 'block', 'important');
-        document.getElementById('inputs_fast-lev_long').style.setProperty('display', 'none', 'important');
-
-
-    } else if (option === 'liq') {
-
-    }
-}

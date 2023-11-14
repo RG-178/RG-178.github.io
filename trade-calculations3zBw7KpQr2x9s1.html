@@ -173,23 +173,23 @@
         
                     <div id="inputs_fast-lev_long">
                     <div class="input-container">
-                      <label for="leverage-fast-qty-long">Stop Loss</label>
+                      <label for="sl-fast-lev-long">Stop Loss</label>
                       <div class="currency" data-currency="USDT">
-                          <input type="number" id="leverage-fast-qty-long" placeholder="Enter SL" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                          <input type="number" id="sl-fast-lev-long" placeholder="Enter SL" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                   </div>
               
                   <div class="input-container">
-                      <label for="entry-fast-qty-long">Entry</label>
+                      <label for="entry-fast-lev-long">Entry</label>
                       <div class="currency" data-currency="USDT">
-                          <input type="number" id="entry-fast-qty-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                          <input type="number" id="entry-fast-lev-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                   </div>
               
                   <div class="input-container">
-                      <label for="cost-fast-qty-long">Take Profit</label>
+                      <label for="tp-fast-lev-long">Take Profit</label>
                       <div class="currency" data-currency="USDT">
-                          <input type="number" id="cost-fast-qty-long" placeholder="Enter TP" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                          <input type="number" id="tp-fast-lev-long" placeholder="Enter TP" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                     </div>
 
@@ -272,7 +272,7 @@
         
                 <!-- wurde entfernt: <hr class="divider_in-ou-put" style="display: none; background: rgb(255 255 255 / 20%); width: 90%; margin-left: 6%; margin-right: 4%; margin-bottom: 5%;"> -->
         
-                <div class="right_fast-qty">
+                <div class="right_fast-lev">
                   <div class="result_fast-qty_cont">
                     <div class="result_fast-qty_tit">Results</div>
                       <div class="result_fast-qty_results">
@@ -280,17 +280,22 @@
         
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Initial Margin</div>
-                          <div id="im_fast-qty"></div>
+                          <div id="im_fast-lev"></div>
                         </div>
         
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Quantity</div>
-                          <div id="qty_fast-qty"></div>
+                          <div id="qty_fast-lev"></div>
                         </div>
         
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Order Value</div>
-                          <div id="ov_fast-qty"></div>
+                          <div id="ov_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Order Value</div>
+                          <div id="lev_fast-lev"></div>
                         </div>
         
         
