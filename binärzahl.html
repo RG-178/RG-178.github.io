@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="icon" href="REVFAV.png" type="">
+
+  <link rel="apple-touch-icon" href="REVFAV.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binärzahl Berechner | RevoGenuity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      margin-top: 50px !important;
+      margin: 0px;
+      background: rgb(20, 20, 20);
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-container {
+      display: flex;
+      justify-content: center;
+      padding-top: 4%;
+    }
+
+    .toggle-button {
+      cursor: pointer;
+      padding: 10px;
+      margin: 0 10px;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .toggle-button.active {
+      background-color: #2ecc7098;
+      color: white;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <h1 style="margin-block-end: 0px !important">Binärzahl Berechner</h1>
+  <p style="margin-block-start: 0px !important;">Von Riccardo Ambühl</p>
+  <hr style="min-width: 99%; color: white;">
+
+  <div class="binär-zahl-cont">
+  <div class="toggle-container">
+    <button class="toggle-button active" onclick="setMode('zahlZuBin')">Zahl zu Binär</button>
+    <button class="toggle-button" onclick="setMode('binZuZahl')">Binär zu Zahl</button>
+  </div>
+
+  
+  <div class="inputNumber-cont" style="padding-top: 3%;">
+  <label for="inputNumber"></label>
+  <input type="text" id="inputNumber" placeholder="Zahl eingeben">
+  </div>
+
+  <br>
+
+  <button onclick="convert()"><p style="margin-block-start: 0.5rem; margin-block-end: 0.5rem;">Konvertieren</p></button>
+
+  <p style="padding-top: 2%;" id="result"></p>
+
+  </div>
+
+  <script>
+    var currentMode = 'zahlZuBin';
+
+    function setMode(mode) {
+      currentMode = mode;
+      updateToggleButtons();
+    }
+
+    function updateToggleButtons() {
+      var buttons = document.querySelectorAll('.toggle-button');
+      buttons.forEach(button => {
+        if (button.getAttribute('onclick').includes(currentMode)) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
+    }
+
+    function convert() {
+      var inputNumber = document.getElementById('inputNumber').value;
+      var resultElement = document.getElementById('result');
+
+      if (currentMode === 'zahlZuBin') {
+        var binaryResult = convertToBinary(inputNumber);
+        resultElement.textContent = 'Binär Zahl: ' + binaryResult;
+      } else if (currentMode === 'binZuZahl') {
+        var decimalResult = convertToDecimal(inputNumber);
+        resultElement.textContent = 'Normale Zahl: ' + decimalResult;
+      }
+    }
+
+    function convertToBinary(decimalNumber) {
+      return (parseInt(decimalNumber, 10)).toString(2);
+    }
+
+    function convertToDecimal(binaryNumber) {
+      return parseInt(binaryNumber, 2).toString(10);
+    }
+  </script>
+
+</body>
+</html>
