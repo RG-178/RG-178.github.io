@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        
         
         <link rel="icon" href="REVFAV.png" type="">    
         <link rel="apple-touch-icon" href="REVFAV.png">
@@ -40,8 +42,31 @@
         <div class="tab-content" id="myTabContent" style="padding-top: 3%; padding-left: 2%; color: white;">
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
        <!-- 1. Feld Fast Qty Calculation -->   
-    <div class="calc_field_fast-qty">
+    <div class="calc_field_fast-qty" id="calc_field_fast-qty">
       <div class="fast-qty_head">
+
+
+        <div id="fullscreen_cont_fastqty" style="text-align: right;">
+          <button onclick="fullscreen_fastqty()" class="mdl-button mdl-js-button mdl-button--icon" style="text-transform: none;" id="fullscreen_but_fastqty">
+          <div id="fullscreen_fastqty" class="icon material-icons">fullscreen</div>
+          <div class="mdl-tooltip" data-mdl-for="fullscreen_fastqty">
+          Enter Fullscreen
+          </div>
+          </button>
+          </div>
+      
+          <div id="fullscreen_exit_cont_fastqty" style="text-align: right; display: none;">
+            <button onclick="fullscreen_exit_fastqty()" class="mdl-button mdl-js-button mdl-button--icon" style="text-transform: none;" id="fullscreen_exit_but_fastqty">
+            <div id="fullscreen_exit_fastqty" class="icon material-icons">fullscreen_exit</div>
+            <div class="mdl-tooltip" data-mdl-for="fullscreen_exit_fastqty">
+            Exit Fullscreen
+            </div>
+            </button>
+            </div>
+
+
+
+
         <div class="fast-qty_head_tit"><b>Fast Quantity Calculation</b></div>
         <div class="fast-qty_head_text">The Fast Quantity Calculation is very helpful when having to take a Trade spontaneously. You type in your Cost, Leverage and Entry and get the perfect <b>Quantity / Order Value</b> for that Trade, <b>respecting the Bybit Fees.</b></div>
       </div>
@@ -58,27 +83,39 @@
             </div>
           </div>
 
-            <div id="inputs_fast-qty_long">
+          <div id="inputs_fast-qty_long">
             <div class="input-container">
-              <label for="leverage-fast-qty-long">Leverage</label>
+              <div class="but_left">
+                <button onclick="cop_lev_fastqty_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_lev_fastqty_long_mdl">
+                  <label for="leverage-fast-qty-long">Leverage</label>
+                </button>
+              </div>
               <div class="currency" data-currency="X">
                   <input type="number" id="leverage-fast-qty-long" placeholder="1x-100x" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_long()">
               </div>
-          </div>
-      
-          <div class="input-container">
-              <label for="entry-fast-qty-long">Entry</label>
-              <div class="currency" data-currency="USDT">
-                  <input type="number" id="entry-fast-qty-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_long()">
-              </div>
-          </div>
-      
-          <div class="input-container">
-              <label for="cost-fast-qty-long">Cost</label>
-              <div class="currency" data-currency="USDT">
-                  <input type="number" id="cost-fast-qty-long" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_long()">
-              </div>
             </div>
+      
+          <div class="input-container">
+            <div class="but_left">
+              <button onclick="cop_entry_fastqty_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_entry_fastqty_long_mdl">
+                <label for="entry-fast-qty-long">Entry</label>
+              </button>
+            </div>
+            <div class="currency" data-currency="USDT">
+                <input type="number" id="entry-fast-qty-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_long()">
+            </div>
+          </div>
+      
+          <div class="input-container">
+            <div class="but_left">
+              <button onclick="cop_cost_fastqty_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_cost_fastqty_long_mdl">
+                <label for="cost-fast-qty-long">Cost</label>
+              </button>
+            </div>
+            <div class="currency" data-currency="USDT">
+                <input type="number" id="cost-fast-qty-long" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_long()">
+            </div>
+          </div>
 
           </div>
 
@@ -89,25 +126,37 @@
 
           <div id="inputs_fast-qty_short" style="display: none;">
             <div class="input-container">
-              <label for="leverage-fast-qty-short">Leverage</label>
+              <div class="but_left">
+                <button onclick="cop_lev_fastqty_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_lev_fastqty_short_mdl">
+                  <label for="leverage-fast-qty-short">Leverage</label>
+                </button>
+              </div>
               <div class="currency" data-currency="X">
                   <input type="number" id="leverage-fast-qty-short" placeholder="1x-100x" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_short()">
               </div>
           </div>
       
           <div class="input-container">
-              <label for="entry-fast-qty-short">Entry</label>
-              <div class="currency" data-currency="USDT">
-                  <input type="number" id="entry-fast-qty-short" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_short()">
-              </div>
+            <div class="but_left">
+              <button onclick="cop_entry_fastqty_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_entry_fastqty_short_mdl">
+                <label for="entry-fast-qty-short">Entry</label>
+              </button>
+            </div>
+            <div class="currency" data-currency="USDT">
+              <input type="number" id="entry-fast-qty-short" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_short()">
+            </div>
           </div>
       
           <div class="input-container">
-              <label for="cost-fast-qty-short">Cost</label>
-              <div class="currency" data-currency="USDT">
-                  <input type="number" id="cost-fast-qty-short" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_short()">
-              </div>
+            <div class="but_left">
+              <button onclick="cop_cost_fastqty_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_cost_fastqty_short_mdl">
+                <label for="cost-fast-qty-short">Cost</label>
+              </button>
             </div>
+            <div class="currency" data-currency="USDT">
+                <input type="number" id="cost-fast-qty-short" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_qty_short()">
+            </div>
+          </div>
 
           </div>
 
@@ -125,17 +174,26 @@
 
                 <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                   <div class="im-text_left">Initial Margin</div>
+                  <button onclick="cop_im_fastqty()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_im_fastqty_mdl">
                   <div id="im_fast-qty">0.0000 USDT</div>
+                  </button>
+                  <p style="display: none;" id="im_fast-qty_copy"></p>
                 </div>
 
                 <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                   <div class="im-text_left">Quantity</div>
+                  <button onclick="cop_qty_fastqty()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_qty_fastqty_mdl">
                   <div id="qty_fast-qty">0.000 Coins</div>
+                  </button>
+                  <p style="display: none;" id="qty_fast-qty_copy"></p>
                 </div>
 
                 <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                   <div class="im-text_left">Order Value</div>
+                  <button onclick="cop_ov_fastqty()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_ov_fastqty_mdl">
                   <div id="ov_fast-qty">0.0000 USDT</div>
+                  </button>
+                  <p style="display: none;" id="ov_fast-qty_copy"></p>
                 </div>
 
 
@@ -153,8 +211,31 @@
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 
 <!-- 2. Feld Fast Leverage Calculation -->
-            <div class="calc_field_fast-lev">
+            <div class="calc_field_fast-lev" id="calc_field_fast-lev">
               <div class="fast-qty_head">
+
+
+
+                <div id="fullscreen_cont_fastlev" style="text-align: right;">
+                  <button onclick="fullscreen_fastlev()" class="mdl-button mdl-js-button mdl-button--icon" style="text-transform: none;" id="fullscreen_but_fastlev">
+                  <div id="fullscreen_fastlev" class="icon material-icons">fullscreen</div>
+                  <div class="mdl-tooltip" data-mdl-for="fullscreen_fastlev">
+                  Enter Fullscreen
+                  </div>
+                  </button>
+                  </div>
+              
+                  <div id="fullscreen_exit_cont_fastlev" style="text-align: right; display: none;">
+                    <button onclick="fullscreen_exit_fastlev()" class="mdl-button mdl-js-button mdl-button--icon" style="text-transform: none;" id="fullscreen_exit_but_fastlev">
+                    <div id="fullscreen_exit_fastlev" class="icon material-icons">fullscreen_exit</div>
+                    <div class="mdl-tooltip" data-mdl-for="fullscreen_exit_fastlev">
+                    Exit Fullscreen
+                    </div>
+                    </button>
+                    </div>
+
+
+
                 <div class="fast-qty_head_tit"><b>Fast Leverage Calculation</b></div>
                 <div class="fast-qty_head_text">The Fast Leverage Calculation is very helpful for a <b>precise Leverage Calculation</b> for a <b>planned or spontaneous Trade</b> and you can <b>adjust the amount of potential Risk</b> you want to put in, <b>respecting the Bybit Fees.</b></div>
               </div>
@@ -173,42 +254,66 @@
         
                     <div id="inputs_fast-lev_long">
                     <div class="input-container">
-                      <label for="sl-fast-lev-long">Stop Loss</label>
+                      <div class="but_left">
+                        <button onclick="cop_sl_fastlev_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_sl_fastlev_long_mdl">
+                          <label for="sl-fast-lev-long">Stop Loss</label>
+                        </button>
+                      </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="sl-fast-lev-long" placeholder="Enter SL" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                   </div>
               
                   <div class="input-container">
-                      <label for="entry-fast-lev-long">Entry</label>
-                      <div class="currency" data-currency="USDT">
-                          <input type="number" id="entry-fast-lev-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                    <div class="but_left">
+                      <button onclick="cop_entry_fastlev_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_entry_fastlev_long_mdl">
+                        <label for="entry-fast-lev-long">Entry</label>
+                      </button>
+                    </div>
+                    <div class="currency" data-currency="USDT">
+                        <input type="number" id="entry-fast-lev-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                   </div>
               
                   <div class="input-container">
+                    <div class="but_left">
+                      <button onclick="cop_tp_fastlev_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_tp_fastlev_long_mdl">
                       <label for="tp-fast-lev-long">Take Profit</label>
+                      </button>
+                      </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="tp-fast-lev-long" placeholder="Enter TP" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                     </div>
 
                     <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_risk_fastlev_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_risk_fastlev_long_mdl">
                       <label for="risk-fast-lev-long">Risk</label>
+                      </button>
+                      </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="risk-fast-lev-long" placeholder="Enter Risk" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                     </div>
 
                     <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_cost_fastlev_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_cost_fastlev_long_mdl">
                       <label for="cost-fast-lev-long">Cost</label>
+                      </button>
+                      </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="cost-fast-lev-long" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                     </div>
 
                     <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_mmr_fastlev_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_mmr_fastlev_long_mdl">
                       <label for="mmr-fast-lev-long">Maintenance Margin</label>
+                      </button>
+                      </div>
                       <div class="currency" data-currency="%">
                           <input type="number" id="mmr-fast-lev-long" placeholder="Enter MMR" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
@@ -223,42 +328,66 @@
         
                   <div id="inputs_fast-lev_short" style="display: none;">
                     <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_sl_fastlev_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_sl_fastlev_short_mdl">
                       <label for="sl-fast-lev-short">Stop Loss</label>
+                      </button>
+                      </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="sl-fast-lev-short" placeholder="Enter SL" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
                       </div>
                   </div>
               
                   <div class="input-container">
-                      <label for="entry-fast-lev-short">Entry</label>
+                    <div class="but_left">
+                      <button onclick="cop_entry_fastlev_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_entry_fastlev_short_mdl">
+                    <label for="entry-fast-lev-short">Entry</label>
+                    </button>
+                    </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="entry-fast-lev-short" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
                       </div>
                   </div>
               
                   <div class="input-container">
-                      <label for="tp-fast-lev-short">Take Profit</label>
+                    <div class="but_left">
+                      <button onclick="cop_tp_fastlev_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_tp_fastlev_short_mdl">
+                    <label for="tp-fast-lev-short">Take Profit</label>
+                    </button>
+                    </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="tp-fast-lev-short" placeholder="Enter TP" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
                       </div>
                     </div>
 
                     <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_risk_fastlev_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_risk_fastlev_short_mdl">
                       <label for="risk-fast-lev-short">Risk</label>
+                      </button>
+                      </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="risk-fast-lev-short" placeholder="Enter Risk" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
                       </div>
                     </div>
 
                     <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_cost_fastlev_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_cost_fastlev_short_mdl">
                       <label for="cost-fast-lev-short">Cost</label>
+                      </button>
+                      </div>
                       <div class="currency" data-currency="USDT">
                           <input type="number" id="cost-fast-lev-short" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
                       </div>
                     </div>
 
                     <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_mmr_fastlev_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_mmr_fastlev_short_mdl">
                       <label for="mmr-fast-lev-short">Maintenance Margin</label>
+                      </button>
+                      </div>
                       <div class="currency" data-currency="%">
                           <input type="number" id="mmr-fast-lev-short" placeholder="Enter MMR" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
                       </div>
@@ -294,8 +423,99 @@
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left">Order Value</div>
+                          <div class="im-text_left">Leverage</div>
                           <div id="lev_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Liquidation Price</div>
+                          <div id="lp_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Realized Loss (Fees)</div>
+                          <div id="fees_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease-tit_fast-lev" style="display: none;">Price Decrease till Profit</div>
+                          <div class="im-text_left" id="price-increase-tit_fast-lev">Price Increase till Profit</div>
+                          <div id="in-de-pro_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease-tit-proz_fast-lev" style="display: none;">Price Decrease till Profit</div>
+                          <div class="im-text_left" id="price-increase-tit-proz_fast-lev">Price Increase till Profit</div>
+                          <div id="in-de-proz_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">New Price for Profit</div>
+                          <div id="new-pro_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Profit</div>
+                          <div id="pro_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Profit</div>
+                          <div id="proz_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="to-pro_fast-lev_name">?</div> <!-- to-pro_fast-lev_name muss noch bestimmt werden -->
+                          <div id="to-pro_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease_fast-lev" style="display: none;">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase_fast-lev">Price Increase</div>
+                          <div id="in-de-pri_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease-proz_fast-lev" style="display: none;">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase-proz_fast-lev">Price Increase</div>
+                          <div id="in-de-priz_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="to-price_fast-lev_name">?</div> <!-- to-price_fast-lev_name muss noch bestimmt werden -->
+                          <div id="to-price_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Loss</div>
+                          <div id="loss_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Loss</div>
+                          <div id="lossz_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="to-loss_fast-lev_name">?</div> <!-- to-loss_fast-lev_name muss noch bestimmt werden -->
+                          <div id="to-loss_fast-lev"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease_fast-lev_loss" style="display: none;">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase_fast-lev_loss">Price Increase</div>
+                          <div id="in-de-pri_fast-lev_loss"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease-proz_fast-lev_loss" style="display: none;">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase-proz_fast-lev_loss">Price Increase</div>
+                          <div id="in-de-priz_fast-lev_loss"></div>
+                        </div>
+
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="to-price_fast-lev_loss_name">?</div> <!-- to-price_fast-lev_loss_name muss noch bestimmt werden -->
+                          <div id="to-price_fast-lev_loss"></div>
                         </div>
         
         
@@ -308,6 +528,8 @@
         
             </div>
 
+
+
   </div>
           
   
@@ -315,7 +537,97 @@
         </div>
 
 
+        <div id="copy-snackbar" class="mdl-js-snackbar mdl-snackbar">
+          <div class="mdl-snackbar__text"></div>
+          <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        <!-- Fasty QTY -->
+        <div class="mdl-tooltip" data-mdl-for="cop_ov_fastqty_mdl">
+          Copy Order Value
+          </div>
 
+          <div class="mdl-tooltip" data-mdl-for="cop_qty_fastqty_mdl">
+            Copy Quantity
+            </div>
+
+            <div class="mdl-tooltip" data-mdl-for="cop_im_fastqty_mdl">
+              Copy Initial Margin
+              </div>
+
+              <div class="mdl-tooltip" data-mdl-for="cop_lev_fastqty_long_mdl">
+                Copy Leverage
+                </div>
+
+                <div class="mdl-tooltip" data-mdl-for="cop_lev_fastqty_short_mdl">
+                  Copy Leverage
+                  </div>
+
+                  <div class="mdl-tooltip" data-mdl-for="cop_entry_fastqty_long_mdl">
+                    Copy Entry
+                    </div>
+
+                    <div class="mdl-tooltip" data-mdl-for="cop_entry_fastqty_short_mdl">
+                      Copy Entry
+                      </div>
+
+                      <div class="mdl-tooltip" data-mdl-for="cop_cost_fastqty_long_mdl">
+                        Copy Cost
+                        </div>
+
+                        <div class="mdl-tooltip" data-mdl-for="cop_cost_fastqty_short_mdl">
+                          Copy Cost
+                          </div>
+                          <!-- Fast LEV -->
+                          <div class="mdl-tooltip" data-mdl-for="cop_sl_fastlev_short_mdl">
+                            Copy Stop Loss
+                            </div>
+
+                            <div class="mdl-tooltip" data-mdl-for="cop_sl_fastlev_long_mdl">
+                              Copy Stop Loss
+                              </div>
+
+                              <div class="mdl-tooltip" data-mdl-for="cop_tp_fastlev_short_mdl">
+                                Copy Take Profit
+                                </div>
+
+                                <div class="mdl-tooltip" data-mdl-for="cop_tp_fastlev_long_mdl">
+                                  Copy Take Profit
+                                  </div>
+
+                                  <div class="mdl-tooltip" data-mdl-for="cop_mmr_fastlev_short_mdl">
+                                    Copy Maintenance Margin
+                                    </div>
+
+                                    <div class="mdl-tooltip" data-mdl-for="cop_mmr_fastlev_long_mdl">
+                                      Copy Maintenance Margin
+                                      </div>
+
+                                      <div class="mdl-tooltip" data-mdl-for="cop_risk_fastlev_short_mdl">
+                                        Copy Risk
+                                        </div>
+
+                                        <div class="mdl-tooltip" data-mdl-for="cop_risk_fastlev_long_mdl">
+                                          Copy Risk
+                                          </div>
+
+                                          <div class="mdl-tooltip" data-mdl-for="cop_entry_fastlev_short_mdl">
+                                            Copy Entry
+                                            </div>
+
+                                            <div class="mdl-tooltip" data-mdl-for="cop_entry_fastlev_long_mdl">
+                                              Copy Entry
+                                              </div>
+
+                                              <div class="mdl-tooltip" data-mdl-for="cop_cost_fastlev_short_mdl">
+                                                Copy Cost
+                                                </div>
+
+                                                <div class="mdl-tooltip" data-mdl-for="cop_cost_fastlev_long_mdl">
+                                                  Copy Cost
+                                                  </div>
+
+
+      <script src="non-copy.js"></script>
       <script src="functions.js"></script>
       <script src="long-short.js"></script>
       <script src="tabs.js"></script>
@@ -330,9 +642,6 @@
   <style>
 
   @media (max-width: 720px) {
-    /*body {
-      padding-bottom: 800px !important;
-    }*/
     .divider_in-ou-put {
       display: block !important;
     }
@@ -410,6 +719,4 @@
   }
   
   </style>
-
-    </body>
 </html>

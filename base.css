@@ -3,6 +3,7 @@
 body {
     background: rgb(20, 20, 20) !important;
     color: white;
+    user-select: none !important;
 }
 
 /* Login */
@@ -147,30 +148,34 @@ iframe {
     background: rgb(24, 24, 24);
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.5);
   }
 
   .calc_field_fast-lev {
     position: absolute;
-    height: 125%;
+    height: 135%;
     width: 65%;
     border-radius: 10px;
     border: 0px solid;
     background: rgb(24, 24, 24);
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.5);
   }
 
   @media (max-width: 720px) {
     .both_fast-qty {
       display: block !important;
     }
-    .calc_field_fast-qty, .calc_field_fast-lev {
+    .calc_field_fast-qty {
       min-height: 120% !important;
       margin-top: 5%;
     }
-    .right_fast-qty {
+    .calc_field_fast-lev {
+      min-height: 230% !important;
+      margin-top: 5%;
+    }
+    .right_fast-qty, .right_fast-lev {
       margin-right: 4% !important;
       margin-left: 6% !important;
       margin-top: 5% !important;
@@ -419,5 +424,21 @@ iframe {
   color: #F7A600;
 }
 
-.calc_field_fast-lev {
+#copy-snackbar {
+  z-index: 1033;
+  border-radius: 5px;
+  background: rgb(255 255 255 / 90%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.mdl-snackbar__text {
+  color:rgb(24, 24, 24);
+}
+
+.but_left {
+  text-align: left;
+}
+
+.mdl-tooltip {
+  z-index: 1032;
 }
