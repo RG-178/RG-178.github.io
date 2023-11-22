@@ -30,13 +30,13 @@
 
         <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding: 2%; padding-bottom: 0px !important; padding-right: 0px !important;">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="tab_qty" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Fast Qty</button>
+            <button class="nav-link active" id="tab_qty" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" onclick="toggleOption_d('qty')">Fast Qty</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab_lev" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Fast Lev</button>
+            <button class="nav-link" id="tab_lev" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" onclick="toggleOption_d('lev')">Fast Lev</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab_liq" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Fast Liq</button>
+            <button class="nav-link" id="tab_liq" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" onclick="toggleOption_d('liq')">Fast Liq</button>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent" style="padding-top: 3%; padding-left: 2%; color: white;">
@@ -315,7 +315,7 @@
                       </button>
                       </div>
                       <div class="currency" data-currency="%">
-                          <input type="number" id="mmr-fast-lev-long" placeholder="Enter MMR" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
+                          <input type="number" id="mmr-fast-lev-long" placeholder="Enter MMR" value="0.5" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_long()">
                       </div>
                     </div>
         
@@ -389,7 +389,7 @@
                       </button>
                       </div>
                       <div class="currency" data-currency="%">
-                          <input type="number" id="mmr-fast-lev-short" placeholder="Enter MMR" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
+                          <input type="number" id="mmr-fast-lev-short" placeholder="Enter MMR" value="0.5" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_lev_short()">
                       </div>
                     </div>
         
@@ -409,113 +409,176 @@
         
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Initial Margin</div>
-                          <div id="im_fast-lev"></div>
+                          <button onclick="cop_im_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_im_fastlev_mdl">
+                          <div id="im_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="im_fast-lev_copy"></p>
                         </div>
         
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Quantity</div>
-                          <div id="qty_fast-lev"></div>
+                          <button onclick="cop_qty_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_qty_fastlev_mdl">
+                          <div id="qty_fast-lev">0.000 Coins</div>
+                          </button>
+                          <p style="display: none;" id="qty_fast-lev_copy"></p>
                         </div>
         
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Order Value</div>
-                          <div id="ov_fast-lev"></div>
+                          <button onclick="cop_ov_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_ov_fastlev_mdl">
+                          <div id="ov_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="ov_fast-lev_copy"></p>
                         </div>
 
-                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
                           <div class="im-text_left">Leverage</div>
-                          <div id="lev_fast-lev"></div>
+                          <button onclick="cop_lev_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_lev_fastlev_mdl">
+                          <div id="lev_fast-lev">0.00 X</div>
+                          </button>
+                          <p style="display: none;" id="lev_fast-lev_copy"></p>
                         </div>
 
-                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
                           <div class="im-text_left">Liquidation Price</div>
-                          <div id="lp_fast-lev"></div>
+                          <button onclick="cop_lp_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_lp_fastlev_mdl">
+                          <div id="lp_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="lp_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left">Realized Loss (Fees)</div>
-                          <div id="fees_fast-lev"></div>
+                          <div class="im-text_left">Realized Loss</div>
+                          <button onclick="cop_fees_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_fees_fastlev_mdl">
+                          <div id="fees_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="fees_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left" id="price-decrease-tit_fast-lev" style="display: none;">Price Decrease till Profit</div>
-                          <div class="im-text_left" id="price-increase-tit_fast-lev">Price Increase till Profit</div>
-                          <div id="in-de-pro_fast-lev"></div>
+                          <div class="im-text_left" id="price-decrease-tit_fast-lev" style="display: none;">Decrease till Profit</div>
+                          <div class="im-text_left" id="price-increase-tit_fast-lev">Increase till Profit</div>
+                          <button onclick="cop_in_de_pro_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_in_de_pro_fastlev_mdl">
+                          <div id="in-de-pro_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="in_de_pro_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left" id="price-decrease-tit-proz_fast-lev" style="display: none;">Price Decrease till Profit</div>
-                          <div class="im-text_left" id="price-increase-tit-proz_fast-lev">Price Increase till Profit</div>
-                          <div id="in-de-proz_fast-lev"></div>
+                          <div class="im-text_left" id="price-decrease-tit-proz_fast-lev" style="display: none;">Decrease till Profit</div>
+                          <div class="im-text_left" id="price-increase-tit-proz_fast-lev">Increase till Profit</div>
+                          <button onclick="cop_in_de_proz_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_in_de_proz_fastlev_mdl">
+                          <div id="in-de-proz_fast-lev">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="in_de_proz_fast-lev_copy"></p>
                         </div>
 
-                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left">New Price for Profit</div>
-                          <div id="new-pro_fast-lev"></div>
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                          <div class="im-text_left">Price for Profit</div>
+                          <button onclick="cop_new_pro_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_new_pro_fastlev_mdl">
+                          <div id="new-pro_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="new_pro_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Profit</div>
-                          <div id="pro_fast-lev"></div>
+                          <button onclick="cop_pro_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_pro_fastlev_mdl">
+                          <div id="pro_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="pro_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Profit</div>
-                          <div id="proz_fast-lev"></div>
+                          <button onclick="cop_proz_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_proz_fastlev_mdl">
+                          <div id="proz_fast-lev">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="proz_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left" id="to-pro_fast-lev_name">?</div> <!-- to-pro_fast-lev_name muss noch bestimmt werden -->
-                          <div id="to-pro_fast-lev"></div>
+                          <div class="im-text_left" id="to-pro_fast-lev_name">0.0000 to</div>
+                          <button onclick="cop_to_pro_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_to_pro_fastlev_mdl">
+                          <div id="to-pro_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="to_pro_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left" id="price-decrease_fast-lev" style="display: none;">Price Decrease</div>
                           <div class="im-text_left" id="price-increase_fast-lev">Price Increase</div>
-                          <div id="in-de-pri_fast-lev"></div>
+                          <button onclick="cop_in_de_pri_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_in_de_pri_fastlev_mdl">
+                          <div id="in-de-pri_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="in_de_pri_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left" id="price-decrease-proz_fast-lev" style="display: none;">Price Decrease</div>
                           <div class="im-text_left" id="price-increase-proz_fast-lev">Price Increase</div>
-                          <div id="in-de-priz_fast-lev"></div>
+                          <button onclick="cop_in_de_priz_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_in_de_priz_fastlev_mdl">
+                          <div id="in-de-priz_fast-lev">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="in_de_priz_fast-lev_copy"></p>
                         </div>
 
-                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left" id="to-price_fast-lev_name">?</div> <!-- to-price_fast-lev_name muss noch bestimmt werden -->
-                          <div id="to-price_fast-lev"></div>
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                          <div class="im-text_left" id="to-price_fast-lev_name">0.0000 to</div>
+                          <button onclick="cop_to_price_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_to_price_fastlev_mdl">
+                          <div id="to-price_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="to_price_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Loss</div>
-                          <div id="loss_fast-lev"></div>
+                          <button onclick="loss_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="loss_fastlev_mdl">
+                          <div id="loss_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="loss_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
                           <div class="im-text_left">Loss</div>
-                          <div id="lossz_fast-lev"></div>
+                          <button onclick="lossz_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="lossz_fastlev_mdl">
+                          <div id="lossz_fast-lev">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="lossz_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left" id="to-loss_fast-lev_name">?</div> <!-- to-loss_fast-lev_name muss noch bestimmt werden -->
-                          <div id="to-loss_fast-lev"></div>
+                          <div class="im-text_left" id="to-loss_fast-lev_name">0.0000 to</div>
+                          <button onclick="to_loss_fastlev()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="to_loss_fastlev_mdl">
+                          <div id="to-loss_fast-lev">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="to_loss_fast-lev_copy"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left" id="price-decrease_fast-lev_loss" style="display: none;">Price Decrease</div>
-                          <div class="im-text_left" id="price-increase_fast-lev_loss">Price Increase</div>
-                          <div id="in-de-pri_fast-lev_loss"></div>
+                          <div class="im-text_left" id="price-decrease_fast-lev_loss">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase_fast-lev_loss" style="display: none;">Price Increase</div>
+                          <button onclick="in_de_pri_fastlev_loss()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="in_de_pri_fastlev_loss_mdl">
+                          <div id="in-de-pri_fast-lev_loss">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="in_de_pri_fast-lev_copy_loss"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left" id="price-decrease-proz_fast-lev_loss" style="display: none;">Price Decrease</div>
-                          <div class="im-text_left" id="price-increase-proz_fast-lev_loss">Price Increase</div>
-                          <div id="in-de-priz_fast-lev_loss"></div>
+                          <div class="im-text_left" id="price-decrease-proz_fast-lev_loss">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase-proz_fast-lev_loss" style="display: none;">Price Increase</div>
+                          <button onclick="in_de_priz_fastlev_loss()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="in_de_priz_fastlev_loss_mdl">
+                          <div id="in-de-priz_fast-lev_loss">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="in_de_priz_fast-lev_copy_loss"></p>
                         </div>
 
                         <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
-                          <div class="im-text_left" id="to-price_fast-lev_loss_name">?</div> <!-- to-price_fast-lev_loss_name muss noch bestimmt werden -->
-                          <div id="to-price_fast-lev_loss"></div>
+                          <div class="im-text_left" id="to-price_fast-lev_loss_name">0.0000 to</div>
+                          <button onclick="to_price_fastlev_loss()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="to_price_fastlev_loss_mdl">
+                          <div id="to-price_fast-lev_loss">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="to_price_fast-lev_copy_loss"></p>
                         </div>
         
         
@@ -533,7 +596,386 @@
   </div>
           
   
-          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+
+            <!-- 3. Feld Fast Liquidation Price Calculation -->
+            <div class="calc_field_fast-liq" id="calc_field_fast-liq">
+              <div class="fast-qty_head">
+          
+          
+          
+                <div id="fullscreen_cont_fastliq" style="text-align: right;">
+                  <button onclick="fullscreen_fastliq()" class="mdl-button mdl-js-button mdl-button--icon" style="text-transform: none;" id="fullscreen_but_fastliq">
+                  <div id="fullscreen_fastliq" class="icon material-icons">fullscreen</div>
+                  <div class="mdl-tooltip" data-mdl-for="fullscreen_fastliq">
+                  Enter Fullscreen
+                  </div>
+                  </button>
+                  </div>
+              
+                  <div id="fullscreen_exit_cont_fastliq" style="text-align: right; display: none;">
+                    <button onclick="fullscreen_exit_fastliq()" class="mdl-button mdl-js-button mdl-button--icon" style="text-transform: none;" id="fullscreen_exit_but_fastliq">
+                    <div id="fullscreen_exit_fastliq" class="icon material-icons">fullscreen_exit</div>
+                    <div class="mdl-tooltip" data-mdl-for="fullscreen_exit_fastliq">
+                    Exit Fullscreen
+                    </div>
+                    </button>
+                    </div>
+          
+          
+          
+                <div class="fast-qty_head_tit"><b>Fast Liquidation Price Calculation</b></div>
+                <div class="fast-qty_head_text">The Fast Liquidation Price Calculation is one of <b>the most important things in Trading.</b> Because the Liquidation Price is <b>the Price where you will lose all your money,</b> so knowing your Liquidation Price <b>especially when using high Leverage</b> is essential, <b>respecting the Bybit Fees.</b></div>
+              </div>
+          
+              <div class="my-divider"></div>
+          
+              <div class="both_fast-qty">
+                <div class="left_fast-qty">
+              
+                  <div class="switch-container-cont">
+                    <div class="switch-container">
+                      <div id="long_c" class="switch-option active" onclick="toggleOption_c('long')"><div class="longoption_text" style="transform: translateY(-33%); color: rgb(255 255 255 / 75%)">Long</div></div>
+                        <div id="short_c" class="switch-option" onclick="toggleOption_c('short')"><div class="shortoption_text" style="transform: translateY(-33%); color: rgb(255 255 255 / 75%)">Short</div></div>
+                    </div>
+                  </div>
+          
+                    <div id="inputs_fast-liq_long">
+                    <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_sl_fastliq_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_sl_fastliq_long_mdl">
+                          <label for="sl-fast-liq-long">Stop Loss</label>
+                        </button>
+                      </div>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="sl-fast-liq-long" placeholder="Enter SL" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_long()">
+                      </div>
+                  </div>
+              
+                  <div class="input-container">
+                    <div class="but_left">
+                      <button onclick="cop_entry_fastliq_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_entry_fastliq_long_mdl">
+                        <label for="entry-fast-liq-long">Entry</label>
+                      </button>
+                    </div>
+                    <div class="currency" data-currency="USDT">
+                        <input type="number" id="entry-fast-liq-long" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_long()">
+                      </div>
+                  </div>
+              
+                  <div class="input-container">
+                    <div class="but_left">
+                      <button onclick="cop_tp_fastliq_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_tp_fastliq_long_mdl">
+                      <label for="tp-fast-liq-long">Take Profit</label>
+                      </button>
+                      </div>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="tp-fast-liq-long" placeholder="Enter TP" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_long()">
+                      </div>
+                    </div>
+          
+                    <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_lev_fastliq_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_lev_fastliq_long_mdl">
+                      <label for="lev-fast-liq-long">Leverage</label>
+                      </button>
+                      </div>
+                      <div class="currency" data-currency="X">
+                          <input type="number" id="lev-fast-liq-long" placeholder="Enter Leverage" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_long()">
+                      </div>
+                    </div>
+          
+                    <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_cost_fastliq_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_cost_fastliq_long_mdl">
+                      <label for="cost-fast-liq-long">Cost</label>
+                      </button>
+                      </div>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="cost-fast-liq-long" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_long()">
+                      </div>
+                    </div>
+          
+                    <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_mmr_fastliq_long()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_mmr_fastliq_long_mdl">
+                      <label for="mmr-fast-liq-long">Maintenance Margin</label>
+                      </button>
+                      </div>
+                      <div class="currency" data-currency="%">
+                          <input type="number" id="mmr-fast-liq-long" placeholder="Enter MMR" value="0.5" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_long()">
+                      </div>
+                    </div>
+          
+                  </div>
+          
+          
+          
+          
+          
+          
+                  <div id="inputs_fast-liq_short" style="display: none;">
+                    <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_sl_fastliq_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_sl_fastliq_short_mdl">
+                      <label for="sl-fast-liq-short">Stop Loss</label>
+                      </button>
+                      </div>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="sl-fast-liq-short" placeholder="Enter SL" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_short()">
+                      </div>
+                  </div>
+              
+                  <div class="input-container">
+                    <div class="but_left">
+                      <button onclick="cop_entry_fastliq_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_entry_fastliq_short_mdl">
+                    <label for="entry-fast-liq-short">Entry</label>
+                    </button>
+                    </div>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="entry-fast-liq-short" placeholder="Enter Entry" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_short()">
+                      </div>
+                  </div>
+              
+                  <div class="input-container">
+                    <div class="but_left">
+                      <button onclick="cop_tp_fastliq_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_tp_fastliq_short_mdl">
+                    <label for="tp-fast-liq-short">Take Profit</label>
+                    </button>
+                    </div>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="tp-fast-liq-short" placeholder="Enter TP" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_short()">
+                      </div>
+                    </div>
+          
+                    <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_lev_fastliq_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_lev_fastliq_short_mdl">
+                      <label for="lev-fast-liq-short">Leverage</label>
+                      </button>
+                      </div>
+                      <div class="currency" data-currency="X">
+                          <input type="number" id="lev-fast-liq-short" placeholder="Enter Leverage" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_short()">
+                      </div>
+                    </div>
+          
+                    <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_cost_fastliq_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_cost_fastliq_short_mdl">
+                      <label for="cost-fast-liq-short">Cost</label>
+                      </button>
+                      </div>
+                      <div class="currency" data-currency="USDT">
+                          <input type="number" id="cost-fast-liq-short" placeholder="Enter Cost" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_short()">
+                      </div>
+                    </div>
+          
+                    <div class="input-container">
+                      <div class="but_left">
+                        <button onclick="cop_mmr_fastliq_short()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px; color: rgb(255 255 255 / 75%);" id="cop_mmr_fastliq_short_mdl">
+                      <label for="mmr-fast-liq-short">Maintenance Margin</label>
+                      </button>
+                      </div>
+                      <div class="currency" data-currency="%">
+                          <input type="number" id="mmr-fast-liq-short" placeholder="Enter MMR" value="0.5" style="color: rgb(255 255 255 / 10%);" oninput="calc_fast_liq_short()">
+                      </div>
+                    </div>
+          
+                  </div>
+          
+          
+          
+                </div>
+          
+                <!-- wurde entfernt: <hr class="divider_in-ou-put" style="display: none; background: rgb(255 255 255 / 20%); width: 90%; margin-left: 6%; margin-right: 4%; margin-bottom: 5%;"> -->
+          
+                <div class="right_fast-liq">
+                  <div class="result_fast-qty_cont">
+                    <div class="result_fast-qty_tit">Results</div>
+                      <div class="result_fast-qty_results">
+          
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Initial Margin</div>
+                          <button onclick="cop_im_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_im_fastliq_mdl">
+                          <div id="im_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="im_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Quantity</div>
+                          <button onclick="cop_qty_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_qty_fastliq_mdl">
+                          <div id="qty_fast-liq">0.000 Coins</div>
+                          </button>
+                          <p style="display: none;" id="qty_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                          <div class="im-text_left">Order Value</div>
+                          <button onclick="cop_ov_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_ov_fastliq_mdl">
+                          <div id="ov_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="ov_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                          <div class="im-text_left">Liquidation Price</div>
+                          <button onclick="cop_lp_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_lp_fastliq_mdl">
+                          <div id="lp_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="lp_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Realized Loss</div>
+                          <button onclick="cop_fees_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_fees_fastliq_mdl">
+                          <div id="fees_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="fees_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease-tit_fast-liq" style="display: none;">Decrease till Profit</div>
+                          <div class="im-text_left" id="price-increase-tit_fast-liq">Increase till Profit</div>
+                          <button onclick="cop_in_de_pro_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_in_de_pro_fastliq_mdl">
+                          <div id="in-de-pro_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="in_de_pro_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease-tit-proz_fast-liq" style="display: none;">Decrease till Profit</div>
+                          <div class="im-text_left" id="price-increase-tit-proz_fast-liq">Increase till Profit</div>
+                          <button onclick="cop_in_de_proz_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_in_de_proz_fastliq_mdl">
+                          <div id="in-de-proz_fast-liq">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="in_de_proz_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                          <div class="im-text_left">Price for Profit</div>
+                          <button onclick="cop_new_pro_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_new_pro_fastliq_mdl">
+                          <div id="new-pro_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="new_pro_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Profit</div>
+                          <button onclick="cop_pro_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_pro_fastliq_mdl">
+                          <div id="pro_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="pro_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Profit</div>
+                          <button onclick="cop_proz_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_proz_fastliq_mdl">
+                          <div id="proz_fast-liq">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="proz_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="to-pro_fast-liq_name">0.0000 to</div>
+                          <button onclick="cop_to_pro_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_to_pro_fastliq_mdl">
+                          <div id="to-pro_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="to_pro_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease_fast-liq" style="display: none;">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase_fast-liq">Price Increase</div>
+                          <button onclick="cop_in_de_pri_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_in_de_pri_fastliq_mdl">
+                          <div id="in-de-pri_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="in_de_pri_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease-proz_fast-liq" style="display: none;">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase-proz_fast-liq">Price Increase</div>
+                          <button onclick="cop_in_de_priz_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_in_de_priz_fastliq_mdl">
+                          <div id="in-de-priz_fast-liq">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="in_de_priz_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                          <div class="im-text_left" id="to-price_fast-liq_name">0.0000 to</div>
+                          <button onclick="cop_to_price_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="cop_to_price_fastliq_mdl">
+                          <div id="to-price_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="to_price_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Loss</div>
+                          <button onclick="loss_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="loss_fastliq_mdl">
+                          <div id="loss_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="loss_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left">Loss</div>
+                          <button onclick="lossz_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="lossz_fastliq_mdl">
+                          <div id="lossz_fast-liq">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="lossz_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="to-loss_fast-liq_name">0.0000 to</div>
+                          <button onclick="to_loss_fastliq()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="to_loss_fastliq_mdl">
+                          <div id="to-loss_fast-liq">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="to_loss_fast-liq_copy"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease_fast-liq_loss">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase_fast-liq_loss" style="display: none;">Price Increase</div>
+                          <button onclick="in_de_pri_fastliq_loss()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="in_de_pri_fastliq_loss_mdl">
+                          <div id="in-de-pri_fast-liq_loss">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="in_de_pri_fast-liq_copy_loss"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="price-decrease-proz_fast-liq_loss">Price Decrease</div>
+                          <div class="im-text_left" id="price-increase-proz_fast-liq_loss" style="display: none;">Price Increase</div>
+                          <button onclick="in_de_priz_fastliq_loss()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="in_de_priz_fastliq_loss_mdl">
+                          <div id="in-de-priz_fast-liq_loss">0.00 %</div>
+                          </button>
+                          <p style="display: none;" id="in_de_priz_fast-liq_copy_loss"></p>
+                        </div>
+          
+                        <div class="im-results" style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                          <div class="im-text_left" id="to-price_fast-liq_loss_name">0.0000 to</div>
+                          <button onclick="to_price_fastliq_loss()" style="background: transparent; border: 0px; padding-block: 0px; padding-inline: 0px;" id="to_price_fastliq_loss_mdl">
+                          <div id="to-price_fast-liq_loss">0.0000 USDT</div>
+                          </button>
+                          <p style="display: none;" id="to_price_fast-liq_copy_loss"></p>
+                        </div>
+          
+          
+                      </div>
+                  </div>
+                </div>
+          
+              </div>
+          
+          
+            </div>
+
+
+
+
+
+          </div>
         </div>
 
 
@@ -626,6 +1068,219 @@
                                                   Copy Cost
                                                   </div>
 
+                                                  <div class="mdl-tooltip" data-mdl-for="cop_im_fastlev_mdl">
+                                                    Copy Initial Margin
+                                                    </div>
+
+                                                    <div class="mdl-tooltip" data-mdl-for="cop_qty_fastlev_mdl">
+                                                      Copy Quantity
+                                                      </div>
+
+                                                      <div class="mdl-tooltip" data-mdl-for="cop_ov_fastlev_mdl">
+                                                        Copy Order Value
+                                                        </div>
+
+                                                        <div class="mdl-tooltip" data-mdl-for="cop_lev_fastlev_mdl">
+                                                          Copy Leverage
+                                                          </div>
+
+                                                          <div class="mdl-tooltip" data-mdl-for="cop_lp_fastlev_mdl">
+                                                            Copy Liquidation Price
+                                                            </div>
+
+                                                            <div class="mdl-tooltip" data-mdl-for="cop_fees_fastlev_mdl">
+                                                              Copy Realized Loss
+                                                              </div>
+
+                                                              <div id="cop_in_de_pro_fastlev_mdl_content" class="mdl-tooltip" data-mdl-for="cop_in_de_pro_fastlev_mdl">
+                                                                Copy Price Increase till Profit (USDT)
+                                                                </div>
+
+                                                                <div id="cop_in_de_proz_fastlev_mdl_content" class="mdl-tooltip" data-mdl-for="cop_in_de_proz_fastlev_mdl">
+                                                                  Copy Price Increase till Profit (%)
+                                                                  </div>
+
+                                                                <div class="mdl-tooltip" data-mdl-for="cop_new_pro_fastlev_mdl">
+                                                                  Copy Price for Profit
+                                                                  </div>
+
+                                                                  <div class="mdl-tooltip" data-mdl-for="cop_pro_fastlev_mdl">
+                                                                    Copy Profit (USDT)
+                                                                    </div>
+
+                                                                    <div class="mdl-tooltip" data-mdl-for="cop_proz_fastlev_mdl">
+                                                                      Copy Profit (%)
+                                                                      </div>
+
+                                                                      <div class="mdl-tooltip" data-mdl-for="cop_to_pro_fastlev_mdl">
+                                                                        Copy Initial Margin including Profit
+                                                                        </div>
+
+                                                                        <div id="cop_in_de_pri_fastlev_mdl_content" class="mdl-tooltip" data-mdl-for="cop_in_de_pri_fastlev_mdl">
+                                                                          Copy Price Increase (USDT)
+                                                                          </div>
+
+                                                                          <div id="cop_in_de_priz_fastlev_mdl_content" class="mdl-tooltip" data-mdl-for="cop_in_de_priz_fastlev_mdl">
+                                                                            Copy Price Increase (%)
+                                                                            </div>
+
+                                                                            <div class="mdl-tooltip" data-mdl-for="cop_to_price_fastlev_mdl">
+                                                                              Copy Coin Price
+                                                                              </div>
+
+                                                                              <div class="mdl-tooltip" data-mdl-for="loss_fastlev_mdl">
+                                                                                Copy Loss (USDT)
+                                                                                </div>
+            
+                                                                                <div class="mdl-tooltip" data-mdl-for="lossz_fastlev_mdl">
+                                                                                  Copy Loss (%)
+                                                                                  </div>
+            
+                                                                                  <div class="mdl-tooltip" data-mdl-for="to_loss_fastlev_mdl">
+                                                                                    Copy Initial Margin including Loss
+                                                                                    </div>
+            
+                                                                                    <div id="in_de_pri_fastlev_loss_mdl_content" class="mdl-tooltip" data-mdl-for="in_de_pri_fastlev_loss_mdl">
+                                                                                      Copy Price Decrease (USDT)
+                                                                                      </div>
+            
+                                                                                      <div id="in_de_priz_fastlev_loss_mdl_content" class="mdl-tooltip" data-mdl-for="in_de_priz_fastlev_loss_mdl">
+                                                                                        Copy Price Decrease (%)
+                                                                                        </div>
+            
+                                                                                        <div class="mdl-tooltip" data-mdl-for="to_price_fastlev_loss_mdl">
+                                                                                          Copy Coin Price
+                                                                                          </div>
+                                                                                          <!-- Fast LIQ -->
+                                                                                          <div class="mdl-tooltip" data-mdl-for="cop_sl_fastliq_short_mdl">
+                                                                                            Copy Stop Loss
+                                                                                            </div>
+
+                                                                                            <div class="mdl-tooltip" data-mdl-for="cop_sl_fastliq_long_mdl">
+                                                                                              Copy Stop Loss
+                                                                                              </div>
+
+                                                                                              <div class="mdl-tooltip" data-mdl-for="cop_tp_fastliq_short_mdl">
+                                                                                                Copy Take Profit
+                                                                                                </div>
+
+                                                                                                <div class="mdl-tooltip" data-mdl-for="cop_tp_fastliq_long_mdl">
+                                                                                                  Copy Take Profit
+                                                                                                  </div>
+
+                                                                                                  <div class="mdl-tooltip" data-mdl-for="cop_mmr_fastliq_short_mdl">
+                                                                                                    Copy Maintenance Margin
+                                                                                                    </div>
+
+                                                                                                    <div class="mdl-tooltip" data-mdl-for="cop_mmr_fastliq_long_mdl">
+                                                                                                      Copy Maintenance Margin
+                                                                                                      </div>
+
+                                                                                                      <div class="mdl-tooltip" data-mdl-for="cop_lev_fastliq_short_mdl">
+                                                                                                        Leverage Risk
+                                                                                                        </div>
+
+                                                                                                        <div class="mdl-tooltip" data-mdl-for="cop_lev_fastliq_long_mdl">
+                                                                                                          Leverage Risk
+                                                                                                          </div>
+
+                                                                                                          <div class="mdl-tooltip" data-mdl-for="cop_entry_fastliq_short_mdl">
+                                                                                                            Copy Entry
+                                                                                                            </div>
+
+                                                                                                            <div class="mdl-tooltip" data-mdl-for="cop_entry_fastliq_long_mdl">
+                                                                                                              Copy Entry
+                                                                                                              </div>
+
+                                                                                                              <div class="mdl-tooltip" data-mdl-for="cop_cost_fastliq_short_mdl">
+                                                                                                                Copy Cost
+                                                                                                                </div>
+
+                                                                                                                <div class="mdl-tooltip" data-mdl-for="cop_cost_fastliq_long_mdl">
+                                                                                                                  Copy Cost
+                                                                                                                  </div>
+
+                                                                                                                  <div class="mdl-tooltip" data-mdl-for="cop_im_fastliq_mdl">
+                                                                                                                    Copy Initial Margin
+                                                                                                                    </div>
+
+                                                                                                                    <div class="mdl-tooltip" data-mdl-for="cop_qty_fastliq_mdl">
+                                                                                                                      Copy Quantity
+                                                                                                                      </div>
+
+                                                                                                                      <div class="mdl-tooltip" data-mdl-for="cop_ov_fastliq_mdl">
+                                                                                                                        Copy Order Value
+                                                                                                                        </div>
+
+                                                                                                                        <div class="mdl-tooltip" data-mdl-for="cop_lp_fastliq_mdl">
+                                                                                                                          Copy Liquidation Price
+                                                                                                                          </div>
+
+                                                                                                                          <div class="mdl-tooltip" data-mdl-for="cop_fees_fastliq_mdl">
+                                                                                                                            Copy Realized Loss
+                                                                                                                            </div>
+
+                                                                                                                            <div id="cop_in_de_pro_fastliq_mdl_content" class="mdl-tooltip" data-mdl-for="cop_in_de_pro_fastliq_mdl">
+                                                                                                                              Copy Price Increase till Profit (USDT)
+                                                                                                                              </div>
+
+                                                                                                                              <div id="cop_in_de_proz_fastliq_mdl_content" class="mdl-tooltip" data-mdl-for="cop_in_de_proz_fastliq_mdl">
+                                                                                                                                Copy Price Increase till Profit (%)
+                                                                                                                                </div>
+
+                                                                                                                                <div class="mdl-tooltip" data-mdl-for="cop_new_pro_fastliq_mdl">
+                                                                                                                                  Copy Price for Profit
+                                                                                                                                  </div>
+
+                                                                                                                                  <div class="mdl-tooltip" data-mdl-for="cop_pro_fastliq_mdl">
+                                                                                                                                    Copy Profit (USDT)
+                                                                                                                                    </div>
+
+                                                                                                                                    <div class="mdl-tooltip" data-mdl-for="cop_proz_fastliq_mdl">
+                                                                                                                                      Copy Profit (%)
+                                                                                                                                      </div>
+
+                                                                                                                                      <div class="mdl-tooltip" data-mdl-for="cop_to_pro_fastliq_mdl">
+                                                                                                                                        Copy Initial Margin including Profit
+                                                                                                                                        </div>
+
+                                                                                                                                        <div id="cop_in_de_pri_fastliq_mdl_content" class="mdl-tooltip" data-mdl-for="cop_in_de_pri_fastliq_mdl">
+                                                                                                                                          Copy Price Increase (USDT)
+                                                                                                                                          </div>
+
+                                                                                                                                          <div id="cop_in_de_priz_fastliq_mdl_content" class="mdl-tooltip" data-mdl-for="cop_in_de_priz_fastliq_mdl">
+                                                                                                                                            Copy Price Increase (%)
+                                                                                                                                            </div>
+
+                                                                                                                                            <div class="mdl-tooltip" data-mdl-for="cop_to_price_fastliq_mdl">
+                                                                                                                                              Copy Coin Price
+                                                                                                                                              </div>
+
+                                                                                                                                              <div class="mdl-tooltip" data-mdl-for="loss_fastliq_mdl">
+                                                                                                                                                Copy Loss (USDT)
+                                                                                                                                                </div>
+                                                                        
+                                                                                                                                                <div class="mdl-tooltip" data-mdl-for="lossz_fastliq_mdl">
+                                                                                                                                                  Copy Loss (%)
+                                                                                                                                                  </div>
+                                                                        
+                                                                                                                                                  <div class="mdl-tooltip" data-mdl-for="to_loss_fastliq_mdl">
+                                                                                                                                                    Copy Initial Margin including Loss
+                                                                                                                                                    </div>
+                                                                        
+                                                                                                                                                    <div id="in_de_pri_fastliq_loss_mdl_content" class="mdl-tooltip" data-mdl-for="in_de_pri_fastliq_loss_mdl">
+                                                                                                                                                      Copy Price Decrease (USDT)
+                                                                                                                                                      </div>
+                                                                        
+                                                                                                                                                      <div id="in_de_priz_fastliq_loss_mdl_content" class="mdl-tooltip" data-mdl-for="in_de_priz_fastliq_loss_mdl">
+                                                                                                                                                        Copy Price Decrease (%)
+                                                                                                                                                        </div>
+                                                                        
+                                                                                                                                                        <div class="mdl-tooltip" data-mdl-for="to_price_fastliq_loss_mdl">
+                                                                                                                                                          Copy Coin Price
+                                                                                                                                                          </div>
+  
+
 
       <script src="non-copy.js"></script>
       <script src="functions.js"></script>
@@ -647,10 +1302,23 @@
     }
   }
 
-  .nav-tabs .nav-link.active {
+  button#tab_qty.nav-link.active, button#tab_lev.nav-link.active, button#tab_liq.nav-link.active {
     color: white;
-    background: #353A40;
+    background: #25282C;
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.5);
     border: white;
+  }
+
+  button#tab_lev.nav-link.active, button#tab_lev.nav-link {
+    border-radius: 0px !important;
+  }
+
+  button#tab_qty.nav-link.active, button#tab_qty.nav-link {
+    border-top-right-radius: 0px !important;
+  }
+
+  button#tab_liq.nav-link.active, button#tab_liq.nav-link {
+    border-top-left-radius: 0px !important;
   }
 
   .nav-tabs {
@@ -668,6 +1336,12 @@
   button#tab_qty.nav-link, button#tab_lev.nav-link, button#tab_liq.nav-link {
     color: white;
     border: black;
+    background: rgb(24, 24, 24);
+  }
+
+  button#tab_qty.nav-link:hover, button#tab_lev.nav-link:hover, button#tab_liq.nav-link:hover {
+    background: #25282C;
+    box-shadow: 0 0 20px rgb(20, 20, 20, 0.5);
   }
 
   #long-short_drop {

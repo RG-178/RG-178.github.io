@@ -151,9 +151,9 @@ iframe {
     box-shadow: 0 0 20px rgb(0, 0, 0, 0.5);
   }
 
-  .calc_field_fast-lev {
+  .calc_field_fast-lev, .calc_field_fast-liq {
     position: absolute;
-    height: 135%;
+    height: 150%;
     width: 65%;
     border-radius: 10px;
     border: 0px solid;
@@ -171,11 +171,11 @@ iframe {
       min-height: 120% !important;
       margin-top: 5%;
     }
-    .calc_field_fast-lev {
-      min-height: 230% !important;
+    .calc_field_fast-lev, .calc_field_fast-liq {
+      min-height: 240% !important;
       margin-top: 5%;
     }
-    .right_fast-qty, .right_fast-lev {
+    .right_fast-qty, .right_fast-lev, .right_fast-liq {
       margin-right: 4% !important;
       margin-left: 6% !important;
       margin-top: 5% !important;
@@ -197,13 +197,13 @@ iframe {
   }
 
   @media (max-width: 800px) {
-    .calc_field_fast-qty, .calc_field_fast-lev {
+    .calc_field_fast-qty, .calc_field_fast-lev, .calc_field_fast-liq {
       min-width: 96% !important;
     }
   }
 
   @media (max-width: 1100px) {
-    .calc_field_fast-qty, .calc_field_fast-lev {
+    .calc_field_fast-qty, .calc_field_fast-lev, .calc_field_fast-liq {
       min-width: 87%;
     }
   }
@@ -241,11 +241,11 @@ iframe {
     align-items: center;
 }
 
-#long.active, #long_b.active {
+#long.active, #long_b.active, #long_c.active {
   background-color: #20B26C; /* Hintergrundfarbe für "Long", wenn aktiv */
 }
 
-#short.active, #short_b.active {
+#short.active, #short_b.active, #short_c.active {
     background-color: #EF454A; /* Hintergrundfarbe für "Short", wenn aktiv */
 }
 
@@ -343,6 +343,23 @@ iframe {
   color: rgb(255 255 255 / 20%) !important;
 }
 /**/
+/* Fast Liquidation Price */
+#entry-fast-liq-long, #sl-fast-liq-long, #tp-fast-liq-long, #lev-fast-liq-long, #cost-fast-liq-long, #mmr-fast-liq-long {
+  color: rgb(255 255 255 / 100%) !important;
+}
+
+#entry-fast-liq-long::placeholder, #sl-fast-liq-long::placeholder, #tp-fast-liq-long::placeholder, #lev-fast-liq-long::placeholder, #cost-fast-liq-long::placeholder, #mmr-fast-liq-long::placeholder {
+  color: rgb(255 255 255 / 20%) !important;
+}
+
+#entry-fast-liq-short, #sl-fast-liq-short, #tp-fast-liq-short, #lev-fast-liq-short, #cost-fast-liq-short, #mmr-fast-liq-short {
+  color: rgb(255 255 255 / 100%) !important;
+}
+
+#entry-fast-liq-short::placeholder, #sl-fast-liq-short::placeholder, #tp-fast-liq-short::placeholder, #lev-fast-liq-short::placeholder, #cost-fast-liq-short::placeholder, #mmr-fast-liq-short::placeholder {
+  color: rgb(255 255 255 / 20%) !important;
+}
+/**/
 
 .right_fast-qty {
   background: #25282C;
@@ -353,7 +370,7 @@ iframe {
   margin-top: 1.5%;
 }
 
-.right_fast-lev {
+.right_fast-lev, .right_fast-liq {
   background: #25282C;
   min-height: 600px;
   min-width: 42% !important;
@@ -420,8 +437,24 @@ iframe {
   background-color: rgb(255 255 255 / 20%); /* Ändere die Hintergrundfarbe nach Bedarf */
 }
 
-#im_fast-qty, #ov_fast-qty, #qty_fast-qty, #im_fast-lev, #ov_fast-lev, #qty_fast-lev, #lev_fast-lev {
+#im_fast-qty, #ov_fast-qty, #qty_fast-qty, #im_fast-lev, #ov_fast-lev, #qty_fast-lev, #lev_fast-lev, #im_fast-liq, #ov_fast-liq, #qty_fast-liq {
   color: #F7A600;
+}
+
+#lp_fast-lev, #lp_fast-liq {
+  color: #F4B084;
+}
+
+#fees_fast-lev, #in-de-pro_fast-lev, #in-de-proz_fast-lev, #new-pro_fast-lev, #fees_fast-liq, #in-de-pro_fast-liq, #in-de-proz_fast-liq, #new-pro_fast-liq {
+  color: #3567c6;
+}
+
+#pro_fast-lev, #proz_fast-lev, #to-pro_fast-lev, #in-de-pri_fast-lev, #in-de-priz_fast-lev, #to-price_fast-lev, #pro_fast-liq, #proz_fast-liq, #to-pro_fast-liq, #in-de-pri_fast-liq, #in-de-priz_fast-liq, #to-price_fast-liq {
+  color: rgb(32, 178, 108);
+}
+
+#loss_fast-lev, #lossz_fast-lev, #to-loss_fast-lev, #in-de-pri_fast-lev_loss, #in-de-priz_fast-lev_loss, #to-price_fast-lev_loss, #loss_fast-liq, #lossz_fast-liq, #to-loss_fast-liq, #in-de-pri_fast-liq_loss, #in-de-priz_fast-liq_loss, #to-price_fast-liq_loss {
+  color: #EF454A;
 }
 
 #copy-snackbar {
